@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "firecrawl": {
+      "type": "stdio",
+      "command": "npx -y @modelcontextprotocol/server-firecrawl",
+      "args": [],
+      "env": {}
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx -y @modelcontextprotocol/server-playwright",
+      "args": [],
+      "env": {}
+    }
+  }
+}

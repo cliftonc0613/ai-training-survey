@@ -30,19 +30,29 @@ World-class design review workflows in `context/`:
 
 ## Quick Start
 
-1. **Clone or copy this repository structure to your project:**
+1. **Clone this repository:**
    ```bash
-   # Copy the entire starter template
-   cp -r .claude/ your-project/.claude/
-   cp -r context/ your-project/context/
+   git clone <repository-url>
+   cd _starter
    ```
 
-2. **Customize for your project:**
+2. **Add required MCP servers:**
+   ```bash
+   # Add Firecrawl MCP for web scraping
+   claude mcp add -s project firecrawl "npx -y @modelcontextprotocol/server-firecrawl"
+
+   # Add Playwright MCP for browser automation and design reviews
+   claude mcp add -s project playwright "npx -y @modelcontextprotocol/server-playwright"
+   ```
+
+   These MCPs are already configured in `.mcp.json`, but you'll need to approve them when prompted by Claude Code.
+
+3. **Customize for your project:**
    - Edit `.claude/agents/` to add project-specific agents
    - Modify `.claude/commands/` to include your workflows
    - Create a project-specific `CLAUDE.md` with your architecture
 
-3. **Start using commands:**
+4. **Start using commands:**
    ```bash
    # In Claude Code
    /blog-research
@@ -149,8 +159,14 @@ Based on Stripe, Airbnb, and Linear design standards.
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code)
-- Optional: Playwright MCP for design review workflows
-- Optional: Firecrawl MCP for web scraping features
+- **Firecrawl MCP** - For web scraping and content research features
+- **Playwright MCP** - For browser automation and design review workflows
+
+Both MCP servers are pre-configured in `.mcp.json` and can be added using:
+```bash
+claude mcp add -s project firecrawl "npx -y @modelcontextprotocol/server-firecrawl"
+claude mcp add -s project playwright "npx -y @modelcontextprotocol/server-playwright"
+```
 
 ## Documentation
 
