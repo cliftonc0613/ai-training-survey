@@ -3,10 +3,12 @@ import '@mantine/core/styles.css';
 import React from 'react';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
 import { theme } from '../theme';
+import { UserProvider } from '@/lib/context/UserContext';
+import { QuizProvider } from '@/lib/context/QuizContext';
 
 export const metadata = {
-  title: 'Mantine Next.js template',
-  description: 'I am using Mantine with Next.js!',
+  title: 'AI Training Course Survey',
+  description: 'Progressive web app for AI training course surveys with offline support',
 };
 
 export default function RootLayout({ children }: { children: any }) {
@@ -21,7 +23,11 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <UserProvider>
+            <QuizProvider>{children}</QuizProvider>
+          </UserProvider>
+        </MantineProvider>
       </body>
     </html>
   );
