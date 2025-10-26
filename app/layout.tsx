@@ -1,7 +1,9 @@
 import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
 
 import React from 'react';
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 import { theme } from '../theme';
 import { UserProvider } from '@/lib/context/UserContext';
 import { QuizProvider } from '@/lib/context/QuizContext';
@@ -24,6 +26,7 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <MantineProvider theme={theme}>
+          <Notifications position="top-right" zIndex={1000} />
           <UserProvider>
             <QuizProvider>{children}</QuizProvider>
           </UserProvider>

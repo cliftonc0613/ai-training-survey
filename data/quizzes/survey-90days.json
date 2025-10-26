@@ -1,0 +1,325 @@
+{
+  "id": "survey-90days",
+  "title": "90-Day Progress Check-In",
+  "description": "Share your employment progress and experience 90 days after completing the AI training program.",
+  "estimatedTime": 12,
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-01T00:00:00Z",
+  "questions": [
+    {
+      "id": "q1-employment-status",
+      "type": "multiple-choice",
+      "question": "Are you currently employed in an AI-related role?",
+      "required": true,
+      "options": [
+        "Yes, started within the last 90 days",
+        "Yes, but I was already employed before the program",
+        "No, still job searching",
+        "No, I took a break from job searching",
+        "Other"
+      ]
+    },
+    {
+      "id": "q1-employment-other",
+      "type": "text",
+      "question": "If you selected 'Other', please specify:",
+      "required": false,
+      "placeholder": "Please describe your employment status...",
+      "maxLength": 200
+    },
+    {
+      "id": "q2-start-date",
+      "type": "text",
+      "question": "When did you start your current job?",
+      "required": false,
+      "placeholder": "MM/DD/YYYY",
+      "maxLength": 50
+    },
+    {
+      "id": "q3-job-title",
+      "type": "text",
+      "question": "What is your job title?",
+      "required": false,
+      "placeholder": "e.g., AI Data Analyst, Junior Developer...",
+      "maxLength": 100
+    },
+    {
+      "id": "q4-company-name",
+      "type": "text",
+      "question": "What company do you work for (or type of company if you'd rather not name it)?",
+      "required": false,
+      "placeholder": "Company name, or 'Tech startup', 'Fortune 500 company', etc.",
+      "maxLength": 200
+    },
+    {
+      "id": "q5-industry",
+      "type": "multiple-choice",
+      "question": "What industry is your company in?",
+      "required": false,
+      "options": [
+        "Technology/Software",
+        "Healthcare",
+        "Finance",
+        "Manufacturing",
+        "Retail/E-commerce",
+        "Government/Education",
+        "Consulting",
+        "Other"
+      ]
+    },
+    {
+      "id": "q5-industry-other",
+      "type": "text",
+      "question": "If you selected 'Other' industry, please specify:",
+      "required": false,
+      "placeholder": "Describe the industry...",
+      "maxLength": 100
+    },
+    {
+      "id": "q6-ai-related",
+      "type": "multiple-choice",
+      "question": "Is this role AI-related or does it involve AI skills?",
+      "required": false,
+      "options": [
+        "Yes, heavily AI-focused",
+        "Yes, somewhat AI-related",
+        "No, not AI-related",
+        "AI skills are helpful but not primary"
+      ]
+    },
+    {
+      "id": "q7-employment-type",
+      "type": "multiple-choice",
+      "question": "Are you employed full-time or part-time?",
+      "required": false,
+      "options": [
+        "Full-time (35+ hours/week)",
+        "Part-time (less than 35 hours/week)",
+        "Contract/Freelance"
+      ]
+    },
+    {
+      "id": "q8-salary",
+      "type": "multiple-choice",
+      "question": "What is your starting/current annual salary (or hourly rate)?",
+      "required": false,
+      "options": [
+        "$35,000 - $40,000",
+        "$40,000 - $45,000",
+        "$45,000 - $50,000",
+        "$50,000 - $55,000",
+        "$55,000 - $60,000",
+        "$60,000 - $65,000",
+        "$65,000+",
+        "Prefer not to say"
+      ]
+    },
+    {
+      "id": "q9-hiring-factor",
+      "type": "multiple-choice",
+      "question": "What was the biggest factor in getting hired for this role?",
+      "required": false,
+      "options": [
+        "AI certification (Microsoft, AWS, Google)",
+        "Capstone projects/portfolio",
+        "Interview performance",
+        "Your technical background",
+        "Networking connection",
+        "Luck/timing",
+        "Other"
+      ]
+    },
+    {
+      "id": "q9-hiring-other",
+      "type": "text",
+      "question": "If you selected 'Other' hiring factor, please specify:",
+      "required": false,
+      "placeholder": "Describe what helped you get hired...",
+      "maxLength": 200
+    },
+    {
+      "id": "q10-mentioned-program",
+      "type": "multiple-choice",
+      "question": "Did you mention the AI Fundamentals program during your interviews?",
+      "required": false,
+      "options": [
+        "Yes, and it helped",
+        "Yes, but it didn't seem to matter",
+        "No, didn't mention it",
+        "N/A - no interviews"
+      ]
+    },
+    {
+      "id": "q11-shared-capstone",
+      "type": "multiple-choice",
+      "question": "Did you share your capstone projects with the employer?",
+      "required": false,
+      "options": [
+        "Yes, during interview",
+        "Yes, in application materials",
+        "Yes, but they didn't ask about them",
+        "No, didn't share them",
+        "N/A"
+      ]
+    },
+    {
+      "id": "q12-interviews-count",
+      "type": "multiple-choice",
+      "question": "How many interviews have you had in the last 90 days?",
+      "required": false,
+      "options": [
+        "0 interviews",
+        "1-2 interviews",
+        "3-5 interviews",
+        "6+ interviews"
+      ]
+    },
+    {
+      "id": "q13-biggest-barrier",
+      "type": "multiple-choice",
+      "question": "What's your biggest barrier to finding employment right now?",
+      "required": false,
+      "options": [
+        "Not enough relevant job openings in my area",
+        "Having trouble getting interviews",
+        "Interview performance/confidence",
+        "Employers wanting more experience",
+        "Salary expectations don't match job market",
+        "Personal/family circumstances preventing job search",
+        "Not sure what I'm looking for",
+        "Other"
+      ]
+    },
+    {
+      "id": "q13-barrier-other",
+      "type": "text",
+      "question": "If you selected 'Other' barrier, please specify:",
+      "required": false,
+      "placeholder": "Describe your biggest barrier...",
+      "maxLength": 300
+    },
+    {
+      "id": "q14-actively-searching",
+      "type": "multiple-choice",
+      "question": "Are you still actively job searching?",
+      "required": false,
+      "options": [
+        "Yes, very actively",
+        "Yes, but part-time effort",
+        "Not actively right now, but will be soon",
+        "No, I've decided to pursue a different path",
+        "Unsure"
+      ]
+    },
+    {
+      "id": "q15-support-level",
+      "type": "multiple-choice",
+      "question": "How much support from the program would help your job search right now?",
+      "required": false,
+      "options": [
+        "Significant support needed",
+        "Some support would help",
+        "A little support would help",
+        "I'm doing okay on my own"
+      ]
+    },
+    {
+      "id": "q16-support-type",
+      "type": "multiple-choice",
+      "question": "Which support would be most valuable?",
+      "required": false,
+      "options": [
+        "1-on-1 career coaching",
+        "Interview practice with feedback",
+        "Resume/portfolio review",
+        "Networking introductions to employers",
+        "Peer accountability group",
+        "Job leads/employer connections",
+        "Salary negotiation coaching",
+        "Other"
+      ]
+    },
+    {
+      "id": "q16-support-other",
+      "type": "text",
+      "question": "If you selected 'Other' support type, please specify:",
+      "required": false,
+      "placeholder": "Describe what support would be valuable...",
+      "maxLength": 300
+    },
+    {
+      "id": "q17-program-preparation",
+      "type": "multiple-choice",
+      "question": "Looking back, how well did the program prepare you for the job market?",
+      "required": true,
+      "options": [
+        "Extremely well prepared",
+        "Well prepared",
+        "Somewhat prepared",
+        "Not very prepared",
+        "Not prepared at all"
+      ]
+    },
+    {
+      "id": "q18-most-valuable",
+      "type": "text-long",
+      "question": "What was most valuable about the program?",
+      "required": true,
+      "placeholder": "Share what aspects of the program were most helpful...",
+      "minLength": 20,
+      "maxLength": 1000
+    },
+    {
+      "id": "q19-more-helpful",
+      "type": "text-long",
+      "question": "What would have been more helpful?",
+      "required": false,
+      "placeholder": "Share suggestions for what could have better prepared you...",
+      "maxLength": 1000
+    },
+    {
+      "id": "q20-recommend",
+      "type": "multiple-choice",
+      "question": "Would you recommend this program to others looking to get into AI?",
+      "required": true,
+      "options": [
+        "Definitely yes",
+        "Probably yes",
+        "Not sure",
+        "Probably no",
+        "Definitely no"
+      ]
+    },
+    {
+      "id": "q20-recommend-why",
+      "type": "text",
+      "question": "Why or why not would you recommend this program?",
+      "required": false,
+      "placeholder": "Brief explanation...",
+      "maxLength": 500
+    },
+    {
+      "id": "q21-stay-connected",
+      "type": "multiple-choice",
+      "question": "Are you interested in staying connected with the program?",
+      "required": true,
+      "options": [
+        "Yes, I'd like to attend alumni events",
+        "Yes, but only occasional check-ins",
+        "Not really, but keep me on the email list",
+        "No, please remove me from communications"
+      ]
+    },
+    {
+      "id": "q22-mentor-willingness",
+      "type": "multiple-choice",
+      "question": "Would you be willing to mentor future students or speak to upcoming cohorts about your experience?",
+      "required": true,
+      "options": [
+        "Yes, definitely",
+        "Maybe, depending on time commitment",
+        "No, not at this time"
+      ]
+    }
+  ]
+}

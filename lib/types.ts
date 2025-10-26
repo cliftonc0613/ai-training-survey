@@ -1,16 +1,51 @@
 // Core type definitions for the AI Training Survey PWA
 
-export type QuestionType = 'multiple-choice' | 'text' | 'rating' | 'yes-no';
+export type QuestionType =
+  | 'multiple-choice'
+  | 'multiple-choice-cards'
+  | 'checkbox'
+  | 'rating'
+  | 'rating-numbers'
+  | 'rating-slider'
+  | 'dropdown'
+  | 'slider'
+  | 'text'
+  | 'text-long'
+  | 'yes-no';
 
 export interface Question {
   id: string;
   type: QuestionType;
   question: string;
-  options?: string[]; // For multiple-choice questions
+  options?: string[]; // For multiple-choice, checkbox, dropdown
   required: boolean;
   placeholder?: string; // For text questions
-  minRating?: number; // For rating questions
-  maxRating?: number; // For rating questions
+
+  // Rating questions
+  minRating?: number;
+  maxRating?: number;
+  ratingLabels?: { min?: string; max?: string };
+
+  // Checkbox questions
+  minSelection?: number;
+  maxSelection?: number;
+
+  // Slider questions
+  minValue?: number;
+  maxValue?: number;
+  step?: number;
+  marks?: Array<{ value: number; label: string }>;
+  sliderLabels?: { min?: string; max?: string };
+  showValue?: boolean;
+
+  // Text questions
+  minLength?: number;
+  maxLength?: number;
+  minRows?: number;
+  maxRows?: number;
+
+  // Dropdown questions
+  searchable?: boolean;
 }
 
 export interface Quiz {
