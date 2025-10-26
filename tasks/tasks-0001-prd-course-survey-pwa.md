@@ -162,23 +162,23 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 4.11 Add mobile-responsive layouts for all pages
   - [x] 4.12 Implement loading states for all page transitions
 
-- [ ] **5.0 Question Type Components Library**
-  - [ ] 5.1 Create MultipleChoice component (components/QuestionTypes/MultipleChoice.tsx)
-  - [ ] 5.2 Add card-based style variant to MultipleChoice
-  - [ ] 5.3 Add vertical radio-list style variant to MultipleChoice
-  - [ ] 5.4 Create Checkbox component (components/QuestionTypes/Checkbox.tsx) with multi-select
-  - [ ] 5.5 Create RatingScale component (components/QuestionTypes/RatingScale.tsx)
-  - [ ] 5.6 Add star rating variant to RatingScale
-  - [ ] 5.7 Add number buttons variant to RatingScale
-  - [ ] 5.8 Add slider variant to RatingScale
-  - [ ] 5.9 Create Dropdown component (components/QuestionTypes/Dropdown.tsx) with Mantine Select
-  - [ ] 5.10 Add searchable functionality for dropdowns with 20+ items
-  - [ ] 5.11 Create Slider component (components/QuestionTypes/Slider.tsx) with Mantine Slider
-  - [ ] 5.12 Add visual marks and value display to Slider
-  - [ ] 5.13 Create TextShort component (components/QuestionTypes/TextShort.tsx)
-  - [ ] 5.14 Create TextLong component (components/QuestionTypes/TextLong.tsx) with character count
-  - [ ] 5.15 Add validation props to all question components (required, min/max length)
-  - [ ] 5.16 Ensure all components have proper accessibility (ARIA labels, keyboard nav)
+- [x] **5.0 Question Type Components Library**
+  - [x] 5.1 Create MultipleChoice component (components/QuestionTypes/MultipleChoice.tsx)
+  - [x] 5.2 Add card-based style variant to MultipleChoice
+  - [x] 5.3 Add vertical radio-list style variant to MultipleChoice
+  - [x] 5.4 Create Checkbox component (components/QuestionTypes/Checkbox.tsx) with multi-select
+  - [x] 5.5 Create RatingScale component (components/QuestionTypes/RatingScale.tsx)
+  - [x] 5.6 Add star rating variant to RatingScale
+  - [x] 5.7 Add number buttons variant to RatingScale
+  - [x] 5.8 Add slider variant to RatingScale
+  - [x] 5.9 Create Dropdown component (components/QuestionTypes/Dropdown.tsx) with Mantine Select
+  - [x] 5.10 Add searchable functionality for dropdowns with 20+ items
+  - [x] 5.11 Create Slider component (components/QuestionTypes/SliderInput.tsx) with Mantine Slider
+  - [x] 5.12 Add visual marks and value display to Slider
+  - [x] 5.13 Create TextShort component (components/QuestionTypes/TextShort.tsx)
+  - [x] 5.14 Create TextLong component (components/QuestionTypes/TextLong.tsx) with character count
+  - [x] 5.15 Add validation props to all question components (required, min/max length)
+  - [x] 5.16 Ensure all components have proper accessibility (ARIA labels, keyboard nav)
 
 - [ ] **6.0 Quiz Engine & State Management**
   - [ ] 6.1 Create QuizRenderer component to dynamically load question types
