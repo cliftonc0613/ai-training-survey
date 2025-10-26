@@ -1,0 +1,147 @@
+{
+  "id": "survey-12months-final",
+  "title": "12-Month Final Comprehensive Survey",
+  "description": "Final comprehensive assessment one year after completing the AI training course.",
+  "estimatedTime": 15,
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-01T00:00:00Z",
+  "questions": [
+    {
+      "id": "q1-transformation",
+      "type": "rating-slider",
+      "question": "Rate how much AI has transformed your professional life over the past year",
+      "required": true,
+      "minRating": 1,
+      "maxRating": 10,
+      "ratingLabels": {
+        "min": "No transformation",
+        "max": "Complete transformation"
+      }
+    },
+    {
+      "id": "q2-expertise-level",
+      "type": "multiple-choice-cards",
+      "question": "How would you rate your current AI expertise level?",
+      "required": true,
+      "options": [
+        "Beginner - Still learning the basics",
+        "Intermediate - Comfortable with common AI tools",
+        "Advanced - Building custom solutions",
+        "Expert - Teaching and leading AI initiatives",
+        "Thought Leader - Speaking/writing about AI"
+      ]
+    },
+    {
+      "id": "q3-career-outcomes",
+      "type": "checkbox",
+      "question": "Which career outcomes have you experienced? (Select all that apply)",
+      "required": true,
+      "options": [
+        "Promotion or title change",
+        "Salary increase",
+        "New job opportunity",
+        "Expanded responsibilities",
+        "Leading AI projects",
+        "Became an AI advocate/champion",
+        "Started consulting or freelancing",
+        "Changed career paths",
+        "None of the above"
+      ],
+      "minSelection": 1
+    },
+    {
+      "id": "q4-quantifiable-impact",
+      "type": "text-long",
+      "question": "Provide quantifiable metrics of how AI has impacted your work (time saved, revenue generated, efficiency gains, etc.)",
+      "required": true,
+      "placeholder": "Be as specific as possible with numbers and metrics...",
+      "minLength": 100,
+      "maxLength": 1000
+    },
+    {
+      "id": "q5-case-studies",
+      "type": "text-long",
+      "question": "Share 2-3 detailed case studies of projects where you successfully applied AI",
+      "required": true,
+      "placeholder": "For each project, describe: the problem, your AI solution, and the results...",
+      "minLength": 200,
+      "maxLength": 2000
+    },
+    {
+      "id": "q6-organizational-influence",
+      "type": "slider",
+      "question": "How much influence have you had on your organization's AI adoption?",
+      "required": true,
+      "minValue": 0,
+      "maxValue": 100,
+      "step": 10,
+      "sliderLabels": {
+        "min": "No influence",
+        "max": "Major driving force"
+      }
+    },
+    {
+      "id": "q7-people-helped",
+      "type": "text",
+      "question": "Approximately how many people have you trained or helped with AI?",
+      "required": false,
+      "placeholder": "Enter a number (e.g., 5, 20, 100+)",
+      "maxLength": 10
+    },
+    {
+      "id": "q8-tools-expertise",
+      "type": "checkbox",
+      "question": "Which AI tools/platforms do you now consider yourself proficient in?",
+      "required": true,
+      "options": [
+        "ChatGPT / GPT-4",
+        "Claude",
+        "Gemini",
+        "GitHub Copilot",
+        "Midjourney / Stable Diffusion",
+        "Custom API integrations",
+        "LangChain / LlamaIndex",
+        "Vector databases",
+        "Fine-tuning frameworks",
+        "AI automation tools (Zapier, Make, n8n)"
+      ],
+      "minSelection": 1
+    },
+    {
+      "id": "q9-future-plans",
+      "type": "text-long",
+      "question": "What are your AI-related goals and plans for the next year?",
+      "required": false,
+      "placeholder": "Share your vision for continuing your AI journey...",
+      "maxLength": 500
+    },
+    {
+      "id": "q10-course-improvements",
+      "type": "text-long",
+      "question": "Based on your year-long experience, what improvements would you suggest for the course?",
+      "required": false,
+      "placeholder": "What topics should be added, removed, or expanded?",
+      "maxLength": 1000
+    },
+    {
+      "id": "q11-nps-score",
+      "type": "rating-numbers",
+      "question": "On a scale of 0-10, how likely are you to recommend this AI course to others?",
+      "required": true,
+      "minRating": 0,
+      "maxRating": 10,
+      "ratingLabels": {
+        "min": "Not at all likely",
+        "max": "Extremely likely"
+      }
+    },
+    {
+      "id": "q12-testimonial",
+      "type": "text-long",
+      "question": "Would you like to provide a testimonial about your AI learning journey?",
+      "required": false,
+      "placeholder": "This may be used for marketing purposes (with your permission)...",
+      "maxLength": 500
+    }
+  ]
+}

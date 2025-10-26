@@ -1,0 +1,84 @@
+{
+  "id": "survey-30days",
+  "title": "30-Day Follow-Up Survey",
+  "description": "Help us understand your progress 30 days after completing the AI training course.",
+  "estimatedTime": 8,
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-01T00:00:00Z",
+  "questions": [
+    {
+      "id": "q1-implementation",
+      "type": "yes-no",
+      "question": "Have you started implementing AI solutions in your work or projects?",
+      "required": true
+    },
+    {
+      "id": "q2-confidence",
+      "type": "rating-numbers",
+      "question": "How confident do you feel working with AI tools and technologies?",
+      "required": true,
+      "minRating": 1,
+      "maxRating": 10,
+      "ratingLabels": {
+        "min": "Not confident at all",
+        "max": "Extremely confident"
+      }
+    },
+    {
+      "id": "q3-tools-used",
+      "type": "checkbox",
+      "question": "Which AI tools or platforms have you used since completing the course?",
+      "required": true,
+      "options": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "GitHub Copilot",
+        "Midjourney/DALL-E",
+        "Custom ML models",
+        "None yet",
+        "Other"
+      ],
+      "minSelection": 1
+    },
+    {
+      "id": "q4-challenges",
+      "type": "text-long",
+      "question": "What challenges, if any, have you faced when trying to apply what you learned?",
+      "required": false,
+      "placeholder": "Describe any obstacles or difficulties you've encountered...",
+      "minLength": 20,
+      "maxLength": 500
+    },
+    {
+      "id": "q5-most-valuable",
+      "type": "multiple-choice",
+      "question": "Which aspect of the course has been most valuable to you so far?",
+      "required": true,
+      "options": [
+        "Understanding AI fundamentals",
+        "Hands-on practical exercises",
+        "Real-world use cases",
+        "Prompt engineering techniques",
+        "Ethical AI considerations",
+        "Career opportunities in AI"
+      ]
+    },
+    {
+      "id": "q6-recommend",
+      "type": "rating",
+      "question": "How likely are you to recommend this course to a colleague?",
+      "required": true,
+      "minRating": 1,
+      "maxRating": 5
+    },
+    {
+      "id": "q7-additional-support",
+      "type": "text-long",
+      "question": "What additional support or resources would help you succeed with AI?",
+      "required": false,
+      "placeholder": "Share your thoughts on what would be helpful...",
+      "maxLength": 500
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "survey-90days",
+  "title": "90-Day Progress Check-In",
+  "description": "Share your AI journey progress 90 days after course completion.",
+  "estimatedTime": 10,
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-01T00:00:00Z",
+  "questions": [
+    {
+      "id": "q1-frequency",
+      "type": "multiple-choice-cards",
+      "question": "How often are you using AI tools in your daily work?",
+      "required": true,
+      "options": [
+        "Multiple times per day",
+        "Daily",
+        "Several times per week",
+        "Occasionally",
+        "Rarely or never"
+      ]
+    },
+    {
+      "id": "q2-productivity-impact",
+      "type": "rating-slider",
+      "question": "Rate the impact AI tools have had on your productivity",
+      "required": true,
+      "minRating": 1,
+      "maxRating": 10,
+      "ratingLabels": {
+        "min": "No impact",
+        "max": "Transformative impact"
+      }
+    },
+    {
+      "id": "q3-use-cases",
+      "type": "checkbox",
+      "question": "Which of the following have you used AI for? (Select all that apply)",
+      "required": true,
+      "options": [
+        "Writing and content creation",
+        "Code generation and debugging",
+        "Data analysis",
+        "Research and information gathering",
+        "Design and creative work",
+        "Automation of repetitive tasks",
+        "Customer service",
+        "Strategic planning",
+        "Learning new skills"
+      ],
+      "minSelection": 1
+    },
+    {
+      "id": "q4-success-story",
+      "type": "text-long",
+      "question": "Share a success story or notable win you've had using AI",
+      "required": false,
+      "placeholder": "Tell us about a time when AI helped you achieve something meaningful...",
+      "minLength": 50,
+      "maxLength": 1000
+    },
+    {
+      "id": "q5-skill-improvement",
+      "type": "slider",
+      "question": "How much have your AI skills improved since the course?",
+      "required": true,
+      "minValue": 0,
+      "maxValue": 100,
+      "step": 10,
+      "sliderLabels": {
+        "min": "No improvement",
+        "max": "Significant improvement"
+      }
+    },
+    {
+      "id": "q6-career-impact",
+      "type": "multiple-choice",
+      "question": "Has the AI training impacted your career?",
+      "required": true,
+      "options": [
+        "Yes, I got a promotion",
+        "Yes, I changed roles to focus on AI",
+        "Yes, I took on new AI-related responsibilities",
+        "Not yet, but I'm exploring opportunities",
+        "No impact on my career"
+      ]
+    },
+    {
+      "id": "q7-continued-learning",
+      "type": "yes-no",
+      "question": "Have you continued learning about AI beyond the course?",
+      "required": true
+    },
+    {
+      "id": "q8-learning-resources",
+      "type": "text-long",
+      "question": "If yes, what resources or courses have you used for continued learning?",
+      "required": false,
+      "placeholder": "List any books, courses, websites, or other resources...",
+      "maxLength": 500
+    }
+  ]
+}
