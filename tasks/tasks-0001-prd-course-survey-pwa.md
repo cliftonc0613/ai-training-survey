@@ -120,7 +120,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 1.9 Set up ESLint and Prettier configuration
   - [x] 1.10 Configure Mantine theme with custom colors (#46597e, #F06418)
   - [x] 1.11 Create project directory structure (lib/, components/, data/)
-  - [ ] 1.10 Initialize Git repository and create .gitignore
+  - [x] 1.12 Initialize Git repository and create .gitignore
 
 - [ ] **2.0 Core Infrastructure & Type Definitions**
   - [ ] 2.1 Create TypeScript interfaces in lib/types.ts (Quiz, Question, User, QuizResponse)
