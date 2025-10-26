@@ -140,7 +140,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 3.3 Configure Row Level Security policies (supabase/migrations/003_enable_rls.sql)
   - [x] 3.4 Apply migrations to Supabase project (see APPLY_MIGRATIONS.md)
   - [x] 3.5 Create POST /api/user route for user creation
-  - [ ] 3.6 Create POST /api/quiz route for quiz submission
+  - [x] 3.6 Create POST /api/quiz route for quiz submission
   - [ ] 3.7 Create GET /api/quiz/[slug] route for loading quiz definitions
   - [ ] 3.8 Create POST /api/resume route for generating resume tokens
   - [ ] 3.9 Create GET /api/resume/[token] route for loading saved progress
