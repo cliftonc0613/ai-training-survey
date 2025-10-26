@@ -18,6 +18,7 @@ interface QuizContextType {
   resetQuiz: () => void;
   saveProgress: () => Promise<void>;
   loadProgress: () => Promise<void>;
+  loadSavedProgress: (savedData: any) => void;
 }
 
 const QuizContext = createContext<QuizContextType | undefined>(undefined);
@@ -188,6 +189,29 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  const loadSavedProgress = useCallback((savedData: any) => {
+    try {
+      // Convert saved quiz response data to QuizSession format
+      const responses: QuestionResponse[] = Object.entries(savedData.answers || {}).map(
+        ([questionId, answer]) => ({
+          questionId,
+          answer: answer as string | string[] | number | boolean,
+          answeredAt: new Date().toISOString(),
+        })
+      );
+
+      setSession((prev) => ({
+        ...prev,
+        currentQuestionIndex: savedData.current_question_index || 0,
+        responses,
+        progress: responses.length,
+        isComplete: false,
+      }));
+    } catch (error) {
+      console.error('Error loading saved progress:', error);
+    }
+  }, []);
+
   const value: QuizContextType = {
     session,
     isLoading,
@@ -200,6 +224,7 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
     resetQuiz,
     saveProgress,
     loadProgress,
+    loadSavedProgress,
   };
 
   return <QuizContext.Provider value={value}>{children}</QuizContext.Provider>;

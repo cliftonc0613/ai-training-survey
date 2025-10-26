@@ -157,7 +157,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 4.6 Create QuizCard component with icon, title, description, hover states (integrated)
   - [x] 4.7 Create dynamic quiz page (app/quiz/[slug]/page.tsx)
   - [x] 4.8 Add session detection and redirect logic to quiz pages (integrated)
-  - [ ] 4.9 Create resume page (app/quiz/[slug]/resume/[token]/page.tsx)
+  - [x] 4.9 Create resume page (app/quiz/[slug]/resume/[token]/page.tsx)
   - [x] 4.10 Create thank you page (app/thank-you/page.tsx) with navigation options
   - [x] 4.11 Add mobile-responsive layouts for all pages
   - [x] 4.12 Implement loading states for all page transitions
