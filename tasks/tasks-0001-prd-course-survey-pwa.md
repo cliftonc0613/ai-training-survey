@@ -126,7 +126,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 2.1 Create TypeScript interfaces in lib/types.ts (Quiz, Question, User, QuizResponse)
   - [x] 2.2 Create database type definitions in lib/types/database.ts
   - [x] 2.3 Set up Supabase client in lib/supabaseClient.ts
-  - [ ] 2.4 Create validation utilities in lib/utils/validation.ts (name, email, phone validators)
+  - [x] 2.4 Create validation utilities in lib/utils/validation.ts (name, email, phone validators)
   - [ ] 2.5 Create storage utilities in lib/utils/storage.ts (localStorage, IndexedDB helpers)
   - [ ] 2.6 Create resume token generator in lib/utils/resume-token.ts
   - [ ] 2.7 Set up UserContext in lib/context/UserContext.tsx for session management
