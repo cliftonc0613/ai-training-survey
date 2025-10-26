@@ -180,21 +180,22 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 5.15 Add validation props to all question components (required, min/max length)
   - [x] 5.16 Ensure all components have proper accessibility (ARIA labels, keyboard nav)
 
-- [ ] **6.0 Quiz Engine & State Management**
-  - [ ] 6.1 Create QuizRenderer component to dynamically load question types
-  - [ ] 6.2 Implement question navigation state (currentQuestion, answers)
-  - [ ] 6.3 Create ProgressBar component with percentage and question counter
-  - [ ] 6.4 Create QuizNavigation component (Previous, Next, Save, Submit buttons)
-  - [ ] 6.5 Implement "Next" button disable logic (until question answered)
-  - [ ] 6.6 Implement "Previous" button enable logic (except first question)
-  - [ ] 6.7 Add "Save & Continue Later" functionality with localStorage
-  - [ ] 6.8 Implement auto-save every 30 seconds
-  - [ ] 6.9 Generate and store resume tokens
-  - [ ] 6.10 Load and validate quiz JSON from /data/quizzes/ directory
-  - [ ] 6.11 Add quiz validation (check for required fields, valid structure)
-  - [ ] 6.12 Handle quiz submission to API endpoint
-  - [ ] 6.13 Link user_id to quiz responses
-  - [ ] 6.14 Show success/error notifications after submission
+- [x] **6.0 Quiz Engine & State Management**
+  - [x] 6.1 Create QuizRenderer component to dynamically load question types
+  - [x] 6.2 Implement question navigation state (currentQuestion, answers) - QuizContext
+  - [x] 6.3 Create ProgressBar component with percentage and question counter
+  - [x] 6.4 Create QuizNavigation component (Previous, Next, Save, Submit buttons)
+  - [x] 6.5 Implement "Next" button disable logic (until question answered) - useQuizProgress
+  - [x] 6.6 Implement "Previous" button enable logic (except first question) - useQuizProgress
+  - [x] 6.7 Add "Save & Continue Later" functionality with localStorage - QuizContext
+  - [x] 6.8 Implement auto-save every 30 seconds - QuizContext (auto-saves on change)
+  - [x] 6.9 Generate and store resume tokens - UserContext & API
+  - [x] 6.10 Load and validate quiz JSON from /data/quizzes/ directory - quiz-validator.ts
+  - [x] 6.11 Add quiz validation (check for required fields, valid structure) - quiz-validator.ts
+  - [x] 6.12 Handle quiz submission to API endpoint - QuizContext.submitQuiz
+  - [x] 6.13 Link user_id to quiz responses - QuizContext.submitQuiz
+  - [x] 6.14 Show success/error notifications after submission - notifications.ts
+  - [x] 6.15 Add correct surveys - data/quizzes/ (83 questions across 4 surveys)
 
 - [ ] **7.0 PWA Configuration & Offline Support**
   - [ ] 7.1 Configure next-pwa in next.config.mjs
@@ -202,10 +203,10 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [ ] 7.3 Generate PWA icons (192x192, 512x512) and add to /public
   - [ ] 7.4 Set theme color (#46597e) and background color (#ffffff)
   - [ ] 7.5 Configure service worker caching strategies
-  - [ ] 7.6 Implement IndexedDB queue for offline submissions
-  - [ ] 7.7 Create OfflineIndicator component for connection status
-  - [ ] 7.8 Implement background sync when connection restored
-  - [ ] 7.9 Add sync success/failure notifications
+  - [x] 7.6 Implement IndexedDB queue for offline submissions - lib/utils/storage.ts
+  - [x] 7.7 Create OfflineIndicator component for connection status
+  - [x] 7.8 Implement background sync when connection restored - useOfflineQueue
+  - [x] 7.9 Add sync success/failure notifications - OfflineIndicator
   - [ ] 7.10 Test PWA installability on iOS, Android, desktop
   - [ ] 7.11 Validate with Lighthouse PWA audit (score >90)
 

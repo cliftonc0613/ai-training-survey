@@ -1,0 +1,255 @@
+{
+  "id": "survey-12months-final",
+  "title": "12-Month Final Assessment",
+  "description": "Final comprehensive survey one year after completing the AI training program - measuring long-term employment retention and program ROI.",
+  "estimatedTime": 10,
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-01T00:00:00Z",
+  "questions": [
+    {
+      "id": "q1-employment-status",
+      "type": "multiple-choice",
+      "question": "Are you currently employed?",
+      "required": true,
+      "options": [
+        "Yes, full-time",
+        "Yes, part-time",
+        "Yes, contract/freelance",
+        "No, I'm not currently employed",
+        "No, but I'm job searching",
+        "No, by choice (sabbatical, further education, etc.)"
+      ]
+    },
+    {
+      "id": "q2-job-title",
+      "type": "text",
+      "question": "What is your current job title?",
+      "required": false,
+      "placeholder": "e.g., AI Data Analyst, Machine Learning Engineer, etc.",
+      "maxLength": 100
+    },
+    {
+      "id": "q3-company",
+      "type": "text",
+      "question": "What company or type of company do you work for?",
+      "required": false,
+      "placeholder": "Company name or type (e.g., Tech startup, Healthcare company)",
+      "maxLength": 200
+    },
+    {
+      "id": "q4-jobs-count",
+      "type": "multiple-choice",
+      "question": "How many different AI-related jobs have you had since completing the program?",
+      "required": true,
+      "options": [
+        "0 (this is my first)",
+        "1 (currently in first AI role)",
+        "2 (changed jobs once)",
+        "3+"
+      ]
+    },
+    {
+      "id": "q5-job-satisfaction",
+      "type": "multiple-choice",
+      "question": "How satisfied are you with your current role?",
+      "required": true,
+      "options": [
+        "Very satisfied",
+        "Satisfied",
+        "Neutral",
+        "Dissatisfied",
+        "Very dissatisfied",
+        "N/A - Not currently employed"
+      ]
+    },
+    {
+      "id": "q6-career-trajectory",
+      "type": "multiple-choice",
+      "question": "Compared to before the program, how has your career trajectory changed?",
+      "required": true,
+      "options": [
+        "Dramatically improved (better job, better pay, better prospects)",
+        "Significantly improved",
+        "Somewhat improved",
+        "No real change",
+        "Moved backward"
+      ]
+    },
+    {
+      "id": "q7-current-salary",
+      "type": "multiple-choice",
+      "question": "What is your current annual salary or hourly rate?",
+      "required": false,
+      "options": [
+        "$35,000 - $40,000",
+        "$40,000 - $45,000",
+        "$45,000 - $50,000",
+        "$50,000 - $55,000",
+        "$55,000 - $60,000",
+        "$60,000 - $70,000",
+        "$70,000+",
+        "Prefer not to say"
+      ]
+    },
+    {
+      "id": "q8-promotions",
+      "type": "multiple-choice",
+      "question": "Have you received any promotions or role changes since you started in AI?",
+      "required": true,
+      "options": [
+        "Yes, promotion with title change",
+        "Yes, promotion or significant raise",
+        "Yes, expanded responsibilities",
+        "No, still in same role at same level",
+        "N/A"
+      ]
+    },
+    {
+      "id": "q9-skills-usage",
+      "type": "multiple-choice",
+      "question": "Are you using skills from the program in your day-to-day work?",
+      "required": true,
+      "options": [
+        "Yes, constantly",
+        "Yes, frequently",
+        "Yes, occasionally",
+        "Rarely",
+        "Not at all",
+        "N/A"
+      ]
+    },
+    {
+      "id": "q10-additional-training",
+      "type": "multiple-choice",
+      "question": "Since completing the program, have you pursued additional training or certifications?",
+      "required": true,
+      "options": [
+        "Yes, other AI/ML certifications",
+        "Yes, degree program",
+        "Yes, other online courses",
+        "No, but I'm thinking about it",
+        "No, and I'm not interested",
+        "Other"
+      ]
+    },
+    {
+      "id": "q10-training-other",
+      "type": "text",
+      "question": "If you selected 'Other' for additional training, please specify:",
+      "required": false,
+      "placeholder": "Describe your additional training...",
+      "maxLength": 300
+    },
+    {
+      "id": "q11-knowledge-currency",
+      "type": "multiple-choice",
+      "question": "Do you feel your AI knowledge is keeping up with industry demands?",
+      "required": true,
+      "options": [
+        "Yes, definitely",
+        "Yes, somewhat",
+        "Neutral",
+        "No, falling behind",
+        "Not sure"
+      ]
+    },
+    {
+      "id": "q12-overall-impact",
+      "type": "multiple-choice",
+      "question": "How would you rate the program's overall impact on your career?",
+      "required": true,
+      "options": [
+        "Transformational (changed my entire trajectory)",
+        "Highly positive",
+        "Positive",
+        "Neutral",
+        "Negative"
+      ]
+    },
+    {
+      "id": "q13-lasting-impact",
+      "type": "multiple-choice",
+      "question": "What specific part of the program had the most lasting impact?",
+      "required": true,
+      "options": [
+        "Foundational AI knowledge",
+        "Capstone projects/portfolio",
+        "Certification",
+        "Career coaching and interview prep",
+        "Community and peer support",
+        "All equally important",
+        "Other"
+      ]
+    },
+    {
+      "id": "q13-impact-other",
+      "type": "text",
+      "question": "If you selected 'Other', please specify what had the most lasting impact:",
+      "required": false,
+      "placeholder": "Describe what had the most impact...",
+      "maxLength": 300
+    },
+    {
+      "id": "q14-change-one-thing",
+      "type": "text-long",
+      "question": "If you could change one thing about the program, what would it be?",
+      "required": false,
+      "placeholder": "Share your suggestion for improvement...",
+      "maxLength": 1000
+    },
+    {
+      "id": "q15-advice",
+      "type": "text-long",
+      "question": "What advice would you give to someone starting the program today?",
+      "required": false,
+      "placeholder": "Share your wisdom with future students...",
+      "minLength": 20,
+      "maxLength": 1000
+    },
+    {
+      "id": "q16-recommended",
+      "type": "multiple-choice",
+      "question": "Have you recommended this program to others?",
+      "required": true,
+      "options": [
+        "Yes, many people",
+        "Yes, a few people",
+        "No, but I would if asked",
+        "No, I wouldn't recommend it",
+        "Unsure"
+      ]
+    },
+    {
+      "id": "q17-guest-speaker",
+      "type": "multiple-choice",
+      "question": "Would you be willing to be a guest speaker or mentor for future cohorts?",
+      "required": true,
+      "options": [
+        "Yes, I'd be happy to",
+        "Maybe, depending on time commitment",
+        "No, but I appreciate being asked",
+        "No"
+      ]
+    },
+    {
+      "id": "q18-stay-connected",
+      "type": "checkbox",
+      "question": "How would you like to stay connected with the program? (Select all that apply)",
+      "required": false,
+      "options": [
+        "Attend alumni events",
+        "Mentor future students",
+        "Occasional email updates only",
+        "Not interested in staying connected"
+      ]
+    },
+    {
+      "id": "q19-final-comments",
+      "type": "text-long",
+      "question": "Is there anything else you'd like the program to know?",
+      "required": false,
+      "placeholder": "Share any additional thoughts, feedback, or comments...",
+      "maxLength": 1000
+    }
+  ]
+}
