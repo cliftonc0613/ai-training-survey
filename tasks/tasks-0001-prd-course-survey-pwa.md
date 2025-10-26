@@ -138,7 +138,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 3.1 Create users table migration (supabase/migrations/001_create_users_table.sql)
   - [x] 3.2 Create quiz_responses table migration (supabase/migrations/002_create_quiz_responses_table.sql)
   - [x] 3.3 Configure Row Level Security policies (supabase/migrations/003_enable_rls.sql)
-  - [ ] 3.4 Apply migrations to Supabase project
+  - [x] 3.4 Apply migrations to Supabase project (see APPLY_MIGRATIONS.md)
   - [ ] 3.5 Create POST /api/user route for user creation
   - [ ] 3.6 Create POST /api/quiz route for quiz submission
   - [ ] 3.7 Create GET /api/quiz/[slug] route for loading quiz definitions
