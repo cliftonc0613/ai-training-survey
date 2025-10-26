@@ -195,7 +195,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 6.12 Handle quiz submission to API endpoint - QuizContext.submitQuiz
   - [x] 6.13 Link user_id to quiz responses - QuizContext.submitQuiz
   - [x] 6.14 Show success/error notifications after submission - notifications.ts
-  - [ ] 6.15 Add correct surveys
+  - [x] 6.15 Add correct surveys - data/quizzes/ (83 questions across 4 surveys)
 
 - [ ] **7.0 PWA Configuration & Offline Support**
   - [ ] 7.1 Configure next-pwa in next.config.mjs
