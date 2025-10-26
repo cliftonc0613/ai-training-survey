@@ -1,6 +1,7 @@
 {
-  "name": "mantine-next-template",
+  "name": "ai-training-survey-pwa",
   "version": "1.0.0",
+  "description": "Progressive Web App for AI training course surveys with offline support and data collection",
   "private": true,
   "scripts": {
     "dev": "next dev",
