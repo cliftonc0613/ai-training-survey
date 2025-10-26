@@ -155,8 +155,8 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 4.4 Implement redirect query parameter handling in /start page (handled)
   - [x] 4.5 Create quiz selection page (app/quizzes/page.tsx) with responsive grid
   - [x] 4.6 Create QuizCard component with icon, title, description, hover states (integrated)
-  - [ ] 4.7 Create dynamic quiz page (app/quiz/[slug]/page.tsx)
-  - [ ] 4.8 Add session detection and redirect logic to quiz pages
+  - [x] 4.7 Create dynamic quiz page (app/quiz/[slug]/page.tsx)
+  - [x] 4.8 Add session detection and redirect logic to quiz pages (integrated)
   - [ ] 4.9 Create resume page (app/quiz/[slug]/resume/[token]/page.tsx)
   - [ ] 4.10 Create thank you page (app/thank-you/page.tsx) with navigation options
   - [ ] 4.11 Add mobile-responsive layouts for all pages
