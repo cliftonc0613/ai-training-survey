@@ -190,11 +190,11 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 6.7 Add "Save & Continue Later" functionality with localStorage - QuizContext
   - [x] 6.8 Implement auto-save every 30 seconds - QuizContext (auto-saves on change)
   - [x] 6.9 Generate and store resume tokens - UserContext & API
-  - [ ] 6.10 Load and validate quiz JSON from /data/quizzes/ directory
-  - [ ] 6.11 Add quiz validation (check for required fields, valid structure)
+  - [x] 6.10 Load and validate quiz JSON from /data/quizzes/ directory - quiz-validator.ts
+  - [x] 6.11 Add quiz validation (check for required fields, valid structure) - quiz-validator.ts
   - [x] 6.12 Handle quiz submission to API endpoint - QuizContext.submitQuiz
   - [x] 6.13 Link user_id to quiz responses - QuizContext.submitQuiz
-  - [ ] 6.14 Show success/error notifications after submission
+  - [x] 6.14 Show success/error notifications after submission - notifications.ts
 
 - [ ] **7.0 PWA Configuration & Offline Support**
   - [ ] 7.1 Configure next-pwa in next.config.mjs
