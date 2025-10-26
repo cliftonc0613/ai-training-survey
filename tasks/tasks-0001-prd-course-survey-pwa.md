@@ -123,7 +123,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 1.12 Initialize Git repository and create .gitignore
 
 - [ ] **2.0 Core Infrastructure & Type Definitions**
-  - [ ] 2.1 Create TypeScript interfaces in lib/types.ts (Quiz, Question, User, QuizResponse)
+  - [x] 2.1 Create TypeScript interfaces in lib/types.ts (Quiz, Question, User, QuizResponse)
   - [ ] 2.2 Create database type definitions in lib/types/database.ts
   - [ ] 2.3 Set up Supabase client in lib/supabaseClient.ts
   - [ ] 2.4 Create validation utilities in lib/utils/validation.ts (name, email, phone validators)
