@@ -114,7 +114,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 1.3 Install dependencies using yarn
   - [x] 1.4 Run development server to verify setup
   - [x] 1.5 Install additional dependencies (@supabase/supabase-js, next-pwa)
-  - [ ] 1.6 Configure environment variables (.env.local with Supabase credentials)
+  - [x] 1.6 Configure environment variables (.env.local with Supabase credentials)
   - [ ] 1.5 Update package.json metadata (name, description)
   - [ ] 1.6 Configure TypeScript (tsconfig.json) with strict mode
   - [ ] 1.7 Set up ESLint and Prettier configuration
