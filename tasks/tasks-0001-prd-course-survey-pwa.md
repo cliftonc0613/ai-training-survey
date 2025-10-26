@@ -135,7 +135,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 2.10 Create useQuizProgress hook in lib/hooks/useQuizProgress.ts
 
 - [ ] **3.0 Database Setup & API Routes**
-  - [ ] 3.1 Create users table migration (supabase/migrations/001_create_users_table.sql)
+  - [x] 3.1 Create users table migration (supabase/migrations/001_create_users_table.sql)
   - [ ] 3.2 Create quiz_responses table migration (supabase/migrations/002_create_quiz_responses_table.sql)
   - [ ] 3.3 Configure Row Level Security policies (supabase/migrations/003_enable_rls.sql)
   - [ ] 3.4 Apply migrations to Supabase project
