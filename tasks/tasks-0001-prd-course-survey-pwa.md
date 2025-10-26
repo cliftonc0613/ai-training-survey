@@ -129,7 +129,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 2.4 Create validation utilities in lib/utils/validation.ts (name, email, phone validators)
   - [x] 2.5 Create storage utilities in lib/utils/storage.ts (localStorage, IndexedDB helpers)
   - [x] 2.6 Create resume token generator in lib/utils/resume-token.ts
-  - [ ] 2.7 Set up UserContext in lib/context/UserContext.tsx for session management
+  - [x] 2.7 Set up UserContext in lib/context/UserContext.tsx for session management
   - [ ] 2.8 Set up QuizContext in lib/context/QuizContext.tsx for quiz state
   - [ ] 2.9 Create useOfflineQueue hook in lib/hooks/useOfflineQueue.ts
   - [ ] 2.10 Create useQuizProgress hook in lib/hooks/useQuizProgress.ts
