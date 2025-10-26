@@ -1,107 +1,175 @@
 {
   "id": "survey-180days",
   "title": "6-Month Impact Assessment",
-  "description": "Evaluate the long-term impact of AI training on your work and career after 6 months.",
-  "estimatedTime": 12,
+  "description": "Evaluate your career progression and the long-term impact of the AI training program after 6 months.",
+  "estimatedTime": 15,
   "createdAt": "2024-01-01T00:00:00Z",
   "updatedAt": "2024-01-01T00:00:00Z",
   "questions": [
     {
-      "id": "q1-ai-integration",
-      "type": "rating-numbers",
-      "question": "How deeply integrated is AI into your daily workflow?",
-      "required": true,
-      "minRating": 1,
-      "maxRating": 10,
-      "ratingLabels": {
-        "min": "Not at all",
-        "max": "Essential to everything I do"
-      }
-    },
-    {
-      "id": "q2-time-saved",
-      "type": "dropdown",
-      "question": "On average, how much time does AI save you per week?",
+      "id": "q1-employment-status",
+      "type": "multiple-choice",
+      "question": "Are you still employed in the same role you started after the program?",
       "required": true,
       "options": [
-        "No time saved",
-        "Less than 1 hour",
-        "1-3 hours",
-        "4-6 hours",
-        "7-10 hours",
-        "11-15 hours",
-        "More than 15 hours"
+        "Yes, same job",
+        "Yes, but I've moved to a different company",
+        "Yes, but I've moved to a different role",
+        "No, I left that job but I'm employed elsewhere",
+        "No, I'm not currently employed",
+        "N/A - I was already employed when I started"
       ]
     },
     {
-      "id": "q3-roi-perception",
-      "type": "multiple-choice-cards",
-      "question": "How would you rate the return on investment of taking this AI course?",
-      "required": true,
-      "options": [
-        "Excellent - Far exceeded expectations",
-        "Very Good - Met expectations",
-        "Good - Somewhat helpful",
-        "Fair - Limited value",
-        "Poor - Not worth it"
-      ]
-    },
-    {
-      "id": "q4-specific-outcomes",
+      "id": "q2-current-role",
       "type": "text-long",
-      "question": "Describe specific measurable outcomes or achievements you've accomplished using AI",
+      "question": "Describe your current role and what you do with AI or technology.",
       "required": true,
-      "placeholder": "Examples: completed projects faster, improved quality metrics, cost savings, new capabilities...",
+      "placeholder": "Share details about your role, responsibilities, and how you use AI...",
       "minLength": 50,
       "maxLength": 1000
     },
     {
-      "id": "q5-team-impact",
-      "type": "yes-no",
-      "question": "Have you shared AI knowledge or tools with your team or organization?",
-      "required": true
-    },
-    {
-      "id": "q6-team-details",
-      "type": "text-long",
-      "question": "If yes, describe how you've helped others leverage AI",
+      "id": "q3-current-company",
+      "type": "text",
+      "question": "What is your current company?",
       "required": false,
-      "placeholder": "Share how you've trained others, created workflows, or championed AI adoption...",
-      "maxLength": 500
+      "placeholder": "Company name or type (e.g., Tech startup, Healthcare company)",
+      "maxLength": 200
     },
     {
-      "id": "q7-advanced-topics",
+      "id": "q3-previous-companies",
+      "type": "text",
+      "question": "Have you worked at any other companies since the program? If so, which ones?",
+      "required": false,
+      "placeholder": "List previous companies or leave blank",
+      "maxLength": 300
+    },
+    {
+      "id": "q4-career-progression",
       "type": "checkbox",
-      "question": "Which advanced AI topics are you interested in learning more about?",
-      "required": false,
-      "options": [
-        "Fine-tuning AI models",
-        "Building custom GPTs",
-        "AI automation and workflows",
-        "Computer vision applications",
-        "AI for data science",
-        "Multimodal AI",
-        "AI governance and ethics",
-        "Enterprise AI deployment",
-        "AI security and privacy"
-      ],
-      "maxSelection": 5
-    },
-    {
-      "id": "q8-obstacles",
-      "type": "text-long",
-      "question": "What obstacles or barriers still prevent you from using AI more effectively?",
-      "required": false,
-      "placeholder": "Describe technical, organizational, or other challenges...",
-      "maxLength": 500
-    },
-    {
-      "id": "q9-overall-satisfaction",
-      "type": "rating",
-      "question": "Overall, how satisfied are you with your AI learning journey?",
+      "question": "Have you received any promotions, raises, or increased responsibilities since starting? (Select all that apply)",
       "required": true,
-      "minRating": 1,
-      "maxRating": 5
+      "options": [
+        "Yes, promotion",
+        "Yes, raise",
+        "Yes, both promotion and raise",
+        "Yes, increased responsibilities but no raise yet",
+        "No changes yet",
+        "N/A"
+      ]
+    },
+    {
+      "id": "q4-raise-percentage",
+      "type": "text",
+      "question": "If you received a raise, what percentage increase was it (approximately)?",
+      "required": false,
+      "placeholder": "e.g., 10%, 15%, 20%",
+      "maxLength": 50
+    },
+    {
+      "id": "q5-certification-usage",
+      "type": "text-long",
+      "question": "How are you using your AI certification or capstone projects in your current role?",
+      "required": false,
+      "placeholder": "Describe how your certification and projects have helped in your work...",
+      "maxLength": 1000
+    },
+    {
+      "id": "q6-certification-advancement",
+      "type": "multiple-choice",
+      "question": "Has the certification helped you advance in any way?",
+      "required": true,
+      "options": [
+        "Yes, significantly",
+        "Yes, somewhat",
+        "Not yet, but I expect it will",
+        "No, not really"
+      ]
+    },
+    {
+      "id": "q7-testimonial-willingness",
+      "type": "multiple-choice",
+      "question": "Would you be willing to share your success story with future students? This could be a short written testimonial or even a recorded video.",
+      "required": true,
+      "options": [
+        "Yes, I'd like to share my story",
+        "Maybe, tell me what's involved",
+        "No, not interested"
+      ]
+    },
+    {
+      "id": "q8-success-story",
+      "type": "text-long",
+      "question": "Can you tell us: What was your situation before the program, what made you decide to enroll, and what's happened since you finished?",
+      "required": false,
+      "placeholder": "Share your journey - where you started, why you enrolled, and your outcomes since completing the program. This may be used as a testimonial for future students (with your permission).",
+      "minLength": 100,
+      "maxLength": 2000
+    },
+    {
+      "id": "q9-most-valuable",
+      "type": "multiple-choice",
+      "question": "Looking back at 6 months, what was the most valuable part of the program?",
+      "required": true,
+      "options": [
+        "The foundational concepts (Tier 1)",
+        "The hands-on projects (Tier 2)",
+        "The certification prep (Week 13)",
+        "The career bootcamp (Week 14)",
+        "The support services (tutoring, career coaching)",
+        "The community/peer support",
+        "All equally valuable",
+        "Other"
+      ]
+    },
+    {
+      "id": "q9-most-valuable-other",
+      "type": "text",
+      "question": "If you selected 'Other', please specify what was most valuable:",
+      "required": false,
+      "placeholder": "Describe what was most valuable...",
+      "maxLength": 300
+    },
+    {
+      "id": "q10-improvements",
+      "type": "text-long",
+      "question": "What could we have done differently?",
+      "required": false,
+      "placeholder": "Share your suggestions for how the program could be improved...",
+      "maxLength": 1000
+    },
+    {
+      "id": "q11-still-recommend",
+      "type": "multiple-choice",
+      "question": "Would you still recommend this program?",
+      "required": true,
+      "options": [
+        "Definitely yes",
+        "Yes",
+        "Unsure",
+        "Not really"
+      ]
+    },
+    {
+      "id": "q12-staying-connected",
+      "type": "multiple-choice",
+      "question": "Are you interested in staying involved with the program?",
+      "required": true,
+      "options": [
+        "Yes, I'd like to be a mentor or speaker",
+        "Yes, I'd like to attend alumni events",
+        "Maybe, just keep me updated on programs",
+        "No, I'm good"
+      ]
+    },
+    {
+      "id": "q12-contact-email",
+      "type": "text",
+      "question": "If you're interested in being a mentor or speaker, what email should we use to reach out?",
+      "required": false,
+      "placeholder": "your.email@example.com",
+      "maxLength": 100
     }
   ]
 }

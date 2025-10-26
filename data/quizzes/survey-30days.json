@@ -1,84 +1,189 @@
 {
   "id": "survey-30days",
   "title": "30-Day Follow-Up Survey",
-  "description": "Help us understand your progress 30 days after completing the AI training course.",
+  "description": "Help us understand your job search progress 30 days after completing the AI training program.",
   "estimatedTime": 8,
   "createdAt": "2024-01-01T00:00:00Z",
   "updatedAt": "2024-01-01T00:00:00Z",
   "questions": [
     {
-      "id": "q1-implementation",
-      "type": "yes-no",
-      "question": "Have you started implementing AI solutions in your work or projects?",
-      "required": true
-    },
-    {
-      "id": "q2-confidence",
-      "type": "rating-numbers",
-      "question": "How confident do you feel working with AI tools and technologies?",
-      "required": true,
-      "minRating": 1,
-      "maxRating": 10,
-      "ratingLabels": {
-        "min": "Not confident at all",
-        "max": "Extremely confident"
-      }
-    },
-    {
-      "id": "q3-tools-used",
-      "type": "checkbox",
-      "question": "Which AI tools or platforms have you used since completing the course?",
-      "required": true,
-      "options": [
-        "ChatGPT",
-        "Claude",
-        "Gemini",
-        "GitHub Copilot",
-        "Midjourney/DALL-E",
-        "Custom ML models",
-        "None yet",
-        "Other"
-      ],
-      "minSelection": 1
-    },
-    {
-      "id": "q4-challenges",
-      "type": "text-long",
-      "question": "What challenges, if any, have you faced when trying to apply what you learned?",
-      "required": false,
-      "placeholder": "Describe any obstacles or difficulties you've encountered...",
-      "minLength": 20,
-      "maxLength": 500
-    },
-    {
-      "id": "q5-most-valuable",
+      "id": "q1-employment-status",
       "type": "multiple-choice",
-      "question": "Which aspect of the course has been most valuable to you so far?",
+      "question": "As of today, what's your current employment status?",
       "required": true,
       "options": [
-        "Understanding AI fundamentals",
-        "Hands-on practical exercises",
-        "Real-world use cases",
-        "Prompt engineering techniques",
-        "Ethical AI considerations",
-        "Career opportunities in AI"
+        "Employed (started a new job)",
+        "Actively job searching",
+        "Taking a break before searching",
+        "Still employed at previous job (not searching yet)",
+        "Other"
       ]
     },
     {
-      "id": "q6-recommend",
-      "type": "rating",
-      "question": "How likely are you to recommend this course to a colleague?",
-      "required": true,
-      "minRating": 1,
-      "maxRating": 5
+      "id": "q1-employment-other",
+      "type": "text",
+      "question": "If you selected 'Other', please specify:",
+      "required": false,
+      "placeholder": "Please describe your employment status...",
+      "maxLength": 200
     },
     {
-      "id": "q7-additional-support",
-      "type": "text-long",
-      "question": "What additional support or resources would help you succeed with AI?",
+      "id": "q2-job-applications",
+      "type": "multiple-choice",
+      "question": "Have you applied for any AI-related jobs since completing the program?",
+      "required": true,
+      "options": [
+        "Yes, I've applied to several",
+        "Yes, I've applied to a few",
+        "Not yet, but I plan to",
+        "No, I'm exploring other options",
+        "No, not interested in AI roles right now"
+      ]
+    },
+    {
+      "id": "q3-interviews",
+      "type": "multiple-choice",
+      "question": "Have you had any interviews for AI-related positions?",
+      "required": true,
+      "options": [
+        "Yes, multiple interviews",
+        "Yes, one or two interviews",
+        "Not yet",
+        "N/A - not applying for AI roles"
+      ]
+    },
+    {
+      "id": "q4-certification-usage",
+      "type": "multiple-choice",
+      "question": "Have you used your certification (Microsoft AI-900, AWS, or Google) in your job search?",
+      "required": true,
+      "options": [
+        "Yes, I've mentioned it in applications and interviews",
+        "Yes, I've mentioned it online (LinkedIn, resume)",
+        "Not yet, but I plan to",
+        "No, haven't used it yet",
+        "Not pursuing certification yet"
+      ]
+    },
+    {
+      "id": "q5-capstone-projects",
+      "type": "multiple-choice",
+      "question": "Have you shared your capstone projects with potential employers or in interviews?",
+      "required": true,
+      "options": [
+        "Yes, frequently",
+        "Yes, a few times",
+        "Not yet, but planning to",
+        "No, don't feel ready yet",
+        "N/A"
+      ]
+    },
+    {
+      "id": "q6-biggest-challenge",
+      "type": "multiple-choice",
+      "question": "What's been your biggest challenge in the job search so far?",
+      "required": true,
+      "options": [
+        "Finding relevant job postings",
+        "Getting interviews",
+        "Competing with more experienced candidates",
+        "Salary expectations not aligning",
+        "Lack of confidence in interviews",
+        "Personal/family circumstances",
+        "No significant challenges",
+        "Other"
+      ]
+    },
+    {
+      "id": "q6-challenge-other",
+      "type": "text",
+      "question": "If you selected 'Other', please specify your biggest challenge:",
       "required": false,
-      "placeholder": "Share your thoughts on what would be helpful...",
-      "maxLength": 500
+      "placeholder": "Describe your challenge...",
+      "maxLength": 300
+    },
+    {
+      "id": "q7-support-needed",
+      "type": "checkbox",
+      "question": "Is there any support from the program that would help you right now? (Select all that apply)",
+      "required": false,
+      "options": [
+        "More interview coaching",
+        "Portfolio review/feedback",
+        "Resume help",
+        "Networking connections to employers",
+        "Peer support/accountability group",
+        "Career counseling",
+        "No, I'm doing fine",
+        "Other"
+      ]
+    },
+    {
+      "id": "q7-support-other",
+      "type": "text",
+      "question": "If you selected 'Other' for support needed, please specify:",
+      "required": false,
+      "placeholder": "Describe what support would help...",
+      "maxLength": 300
+    },
+    {
+      "id": "q8-classmate-contact",
+      "type": "multiple-choice",
+      "question": "Are you still in contact with your classmates from the program?",
+      "required": true,
+      "options": [
+        "Yes, regularly (at least weekly)",
+        "Yes, occasionally (monthly or less)",
+        "Rarely",
+        "No contact"
+      ]
+    },
+    {
+      "id": "q9-most-helpful",
+      "type": "text-long",
+      "question": "Looking back, what part of the program was most helpful for your job search?",
+      "required": true,
+      "placeholder": "Share what was most valuable to you...",
+      "minLength": 20,
+      "maxLength": 1000
+    },
+    {
+      "id": "q10-improvements",
+      "type": "text-long",
+      "question": "What could we have done differently to better prepare you?",
+      "required": false,
+      "placeholder": "Share your suggestions for improvement...",
+      "maxLength": 1000
+    },
+    {
+      "id": "q11-contact-email",
+      "type": "text",
+      "question": "What's the best email to reach you for job opportunities or updates?",
+      "required": false,
+      "placeholder": "your.email@example.com",
+      "maxLength": 100
+    },
+    {
+      "id": "q11-contact-phone",
+      "type": "text",
+      "question": "What's the best phone number to reach you?",
+      "required": false,
+      "placeholder": "(555) 123-4567",
+      "maxLength": 20
+    },
+    {
+      "id": "q11-contact-linkedin",
+      "type": "text",
+      "question": "What's your LinkedIn profile URL?",
+      "required": false,
+      "placeholder": "https://linkedin.com/in/yourprofile",
+      "maxLength": 200
+    },
+    {
+      "id": "q12-followup-permission",
+      "type": "yes-no",
+      "question": "Can we follow up with you at 90 days to see how your job search is progressing?",
+      "required": true
     }
   ]
 }
