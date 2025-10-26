@@ -142,7 +142,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 3.5 Create POST /api/user route for user creation
   - [x] 3.6 Create POST /api/quiz route for quiz submission
   - [x] 3.7 Create GET /api/quiz/[slug] route for loading quiz definitions
-  - [ ] 3.8 Create POST /api/resume route for generating resume tokens
+  - [x] 3.8 Create POST /api/resume route for generating resume tokens
   - [ ] 3.9 Create GET /api/resume/[token] route for loading saved progress
   - [ ] 3.10 Create GET /api/admin/responses route for fetching all responses
   - [ ] 3.11 Create GET /api/admin/users route for fetching user list
