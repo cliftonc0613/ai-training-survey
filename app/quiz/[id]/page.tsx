@@ -104,7 +104,7 @@ export default function QuizPage() {
 
   if (userLoading || isLoading) {
     return (
-      <Container size="md" py={60}>
+      <Container size="md" py={{ base: 40, sm: 60 }} px="md">
         <Stack align="center" gap="md">
           <Loader size="lg" />
           <Text c="dimmed">Loading quiz...</Text>
@@ -115,7 +115,7 @@ export default function QuizPage() {
 
   if (!quiz || !session.currentQuiz) {
     return (
-      <Container size="md" py={60}>
+      <Container size="md" py={{ base: 40, sm: 60 }} px="md">
         <Alert icon={<IconAlertCircle size={16} />} title="Error" color="red">
           Quiz not found.
         </Alert>
@@ -187,7 +187,7 @@ export default function QuizPage() {
   };
 
   return (
-    <Container size="md" py={60}>
+    <Container size="md" py={{ base: 40, sm: 60 }} px="md">
       <Stack gap="xl">
         {/* Progress Bar */}
         <div>
@@ -240,37 +240,42 @@ export default function QuizPage() {
             </div>
 
             {/* Navigation */}
-            <Group justify="space-between" mt="lg">
-              <Button
-                variant="subtle"
-                leftSection={<IconArrowLeft size={16} />}
-                onClick={previousQuestion}
-                disabled={isFirstQuestion}
-              >
-                Previous
-              </Button>
+            <Stack gap="sm" mt="lg">
+              <Group justify="space-between" w="100%">
+                <Button
+                  variant="subtle"
+                  leftSection={<IconArrowLeft size={16} />}
+                  onClick={previousQuestion}
+                  disabled={isFirstQuestion}
+                  style={{ flex: 1 }}
+                >
+                  Previous
+                </Button>
 
-              {isLastQuestion ? (
-                <Button
-                  size="md"
-                  leftSection={<IconCheck size={16} />}
-                  onClick={handleSubmit}
-                  loading={isSubmitting}
-                  disabled={!currentAnswer}
-                >
-                  Submit Survey
-                </Button>
-              ) : (
-                <Button
-                  size="md"
-                  rightSection={<IconArrowRight size={16} />}
-                  onClick={nextQuestion}
-                  disabled={!currentAnswer}
-                >
-                  Next Question
-                </Button>
-              )}
-            </Group>
+                {isLastQuestion ? (
+                  <Button
+                    size="md"
+                    leftSection={<IconCheck size={16} />}
+                    onClick={handleSubmit}
+                    loading={isSubmitting}
+                    disabled={!currentAnswer}
+                    style={{ flex: 2 }}
+                  >
+                    Submit Survey
+                  </Button>
+                ) : (
+                  <Button
+                    size="md"
+                    rightSection={<IconArrowRight size={16} />}
+                    onClick={nextQuestion}
+                    disabled={!currentAnswer}
+                    style={{ flex: 2 }}
+                  >
+                    Next Question
+                  </Button>
+                )}
+              </Group>
+            </Stack>
           </Stack>
         </Paper>
 

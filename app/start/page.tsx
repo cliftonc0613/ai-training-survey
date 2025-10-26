@@ -70,7 +70,7 @@ export default function StartPage() {
   };
 
   return (
-    <Container size="sm" py={60}>
+    <Container size="sm" py={{ base: 40, sm: 60 }} px="md">
       <Stack gap="xl">
         <div>
           <Title order={1} size="h2" mb="sm">

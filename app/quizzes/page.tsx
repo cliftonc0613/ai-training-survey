@@ -59,7 +59,7 @@ export default function QuizzesPage() {
 
   if (userLoading || isLoading) {
     return (
-      <Container size="lg" py={60}>
+      <Container size="lg" py={{ base: 40, sm: 60 }} px="md">
         <Stack align="center" gap="md">
           <Loader size="lg" />
           <Text c="dimmed">Loading quizzes...</Text>
@@ -69,7 +69,7 @@ export default function QuizzesPage() {
   }
 
   return (
-    <Container size="lg" py={60}>
+    <Container size="lg" py={{ base: 40, sm: 60 }} px="md">
       <Stack gap="xl">
         <div>
           <Title order={1} size="h2" mb="sm">

@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Title, Text, Button, Stack, Paper, Group } from '@mantine/core';
+import { Container, Title, Text, Button, Stack, Paper, SimpleGrid } from '@mantine/core';
 import { IconClipboardCheck } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
 
@@ -8,45 +8,61 @@ export default function HomePage() {
   const router = useRouter();
 
   return (
-    <Container size="lg" py={80}>
+    <Container size="lg" py={80} px="md">
       <Stack gap={40} align="center">
         {/* Hero Section */}
-        <Paper shadow="md" p={60} radius="lg" withBorder w="100%">
+        <Paper
+          shadow="md"
+          p={{ base: 'lg', sm: 'xl', md: 60 }}
+          radius="lg"
+          withBorder
+          w="100%"
+          style={{ maxWidth: '100%' }}
+        >
           <Stack gap={30} align="center">
-            <IconClipboardCheck size={80} color="var(--mantine-color-brand-6)" />
+            <IconClipboardCheck size={80} style={{ width: 'min(80px, 20vw)', height: 'auto' }} color="var(--mantine-color-brand-6)" />
 
-            <Title order={1} ta="center" size={48} fw={700}>
+            <Title
+              order={1}
+              ta="center"
+              fw={700}
+              style={{
+                fontSize: 'clamp(28px, 6vw, 48px)',
+              }}
+            >
               AI Training Course Survey
             </Title>
 
-            <Text size="xl" ta="center" c="dimmed" maw={600}>
+            <Text size="lg" ta="center" c="dimmed" maw={600} px="md">
               Help us improve our AI training courses by sharing your experience.
               Your feedback is valuable and takes only a few minutes.
             </Text>
 
-            <Group gap="md" mt="lg">
+            <Stack gap="md" mt="lg" w="100%" maw={400}>
               <Button
-                size="xl"
+                size="lg"
                 onClick={() => router.push('/start')}
-                leftSection={<IconClipboardCheck size={24} />}
+                leftSection={<IconClipboardCheck size={20} />}
+                fullWidth
               >
                 Start Survey
               </Button>
 
               <Button
-                size="xl"
+                size="lg"
                 variant="outline"
                 onClick={() => router.push('/resume')}
+                fullWidth
               >
                 Resume Survey
               </Button>
-            </Group>
+            </Stack>
           </Stack>
         </Paper>
 
         {/* Features Section */}
-        <Group gap="xl" mt="xl" align="flex-start" w="100%">
-          <Paper shadow="sm" p="lg" radius="md" withBorder style={{ flex: 1 }}>
+        <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg" mt="xl" w="100%">
+          <Paper shadow="sm" p="lg" radius="md" withBorder>
             <Stack gap="sm">
               <Title order={3} size="h4">Quick & Easy</Title>
               <Text size="sm" c="dimmed">
@@ -55,7 +71,7 @@ export default function HomePage() {
             </Stack>
           </Paper>
 
-          <Paper shadow="sm" p="lg" radius="md" withBorder style={{ flex: 1 }}>
+          <Paper shadow="sm" p="lg" radius="md" withBorder>
             <Stack gap="sm">
               <Title order={3} size="h4">Works Offline</Title>
               <Text size="sm" c="dimmed">
@@ -64,7 +80,7 @@ export default function HomePage() {
             </Stack>
           </Paper>
 
-          <Paper shadow="sm" p="lg" radius="md" withBorder style={{ flex: 1 }}>
+          <Paper shadow="sm" p="lg" radius="md" withBorder>
             <Stack gap="sm">
               <Title order={3} size="h4">Resume Anytime</Title>
               <Text size="sm" c="dimmed">
@@ -72,7 +88,7 @@ export default function HomePage() {
               </Text>
             </Stack>
           </Paper>
-        </Group>
+        </SimpleGrid>
       </Stack>
     </Container>
   );

@@ -19,8 +19,8 @@ export default function ThankYouPage() {
   }, [user, router]);
 
   const handleCopyToken = () => {
-    if (user?.resume_token) {
-      navigator.clipboard.writeText(user.resume_token);
+    if (user?.resumeToken) {
+      navigator.clipboard.writeText(user.resumeToken);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -31,10 +31,10 @@ export default function ThankYouPage() {
   }
 
   return (
-    <Container size="md" py={80}>
+    <Container size="md" py={{ base: 40, sm: 60, md: 80 }} px="md">
       <Stack gap={40} align="center">
         {/* Success Message */}
-        <Paper shadow="md" p={60} radius="lg" withBorder w="100%">
+        <Paper shadow="md" p={{ base: 'lg', sm: 'xl', md: 60 }} radius="lg" withBorder w="100%">
           <Stack gap={30} align="center">
             <div
               style={{
@@ -50,18 +50,25 @@ export default function ThankYouPage() {
               <IconCheck size={48} color="var(--mantine-color-green-6)" />
             </div>
 
-            <Title order={1} ta="center" size={42} fw={700}>
+            <Title
+              order={1}
+              ta="center"
+              fw={700}
+              style={{
+                fontSize: 'clamp(28px, 5vw, 42px)',
+              }}
+            >
               Thank You!
             </Title>
 
-            <Text size="lg" ta="center" c="dimmed" maw={500}>
+            <Text size="lg" ta="center" c="dimmed" maw={500} px="md">
               Your survey responses have been submitted successfully. We appreciate your feedback!
             </Text>
           </Stack>
         </Paper>
 
         {/* Resume Token Section */}
-        {user.resume_token && (
+        {user.resumeToken && (
           <Paper shadow="sm" p="lg" radius="md" withBorder w="100%">
             <Stack gap="md">
               <Group gap="xs">
@@ -73,16 +80,18 @@ export default function ThankYouPage() {
                 Save this token to resume your progress on any device or review your responses later.
               </Text>
 
-              <Group gap="xs">
+              <Group gap="xs" align="flex-start" style={{ flexWrap: 'wrap' }}>
                 <Code
                   style={{
                     flex: 1,
+                    minWidth: '200px',
                     padding: '12px 16px',
                     fontSize: '14px',
                     fontWeight: 600,
+                    wordBreak: 'break-all',
                   }}
                 >
-                  {user.resume_token}
+                  {user.resumeToken}
                 </Code>
                 <Button
                   variant="light"
@@ -131,8 +140,8 @@ export default function ThankYouPage() {
         </Paper>
 
         {/* Additional Info */}
-        <Text size="sm" c="dimmed" ta="center" maw={500}>
-          Your responses have been saved {user.resume_token ? 'and synced with your resume token' : 'locally'}.
+        <Text size="sm" c="dimmed" ta="center" maw={500} px="md">
+          Your responses have been saved {user.resumeToken ? 'and synced with your resume token' : 'locally'}.
           You can close this page or continue exploring.
         </Text>
       </Stack>
