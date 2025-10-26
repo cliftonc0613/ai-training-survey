@@ -132,7 +132,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 2.7 Set up UserContext in lib/context/UserContext.tsx for session management
   - [x] 2.8 Set up QuizContext in lib/context/QuizContext.tsx for quiz state
   - [x] 2.9 Create useOfflineQueue hook in lib/hooks/useOfflineQueue.ts
-  - [ ] 2.10 Create useQuizProgress hook in lib/hooks/useQuizProgress.ts
+  - [x] 2.10 Create useQuizProgress hook in lib/hooks/useQuizProgress.ts
 
 - [ ] **3.0 Database Setup & API Routes**
   - [ ] 3.1 Create users table migration (supabase/migrations/001_create_users_table.sql)
