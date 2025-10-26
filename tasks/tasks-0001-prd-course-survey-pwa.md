@@ -148,7 +148,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 3.11 Create GET /api/admin/users route for fetching user list
   - [x] 3.12 Add error handling and validation to all API routes (implemented in all routes)
 
-- [ ] **4.0 User Interface - Core Pages**
+- [x] **4.0 User Interface - Core Pages**
   - [x] 4.1 Create landing page (app/page.tsx) with hero section and "Start Survey" button
   - [x] 4.2 Create user info form page (app/start/page.tsx) with Mantine Form
   - [x] 4.3 Add real-time validation to user info form (name, email, phone)
@@ -158,9 +158,9 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 4.7 Create dynamic quiz page (app/quiz/[slug]/page.tsx)
   - [x] 4.8 Add session detection and redirect logic to quiz pages (integrated)
   - [ ] 4.9 Create resume page (app/quiz/[slug]/resume/[token]/page.tsx)
-  - [ ] 4.10 Create thank you page (app/thank-you/page.tsx) with navigation options
-  - [ ] 4.11 Add mobile-responsive layouts for all pages
-  - [ ] 4.12 Implement loading states for all page transitions
+  - [x] 4.10 Create thank you page (app/thank-you/page.tsx) with navigation options
+  - [x] 4.11 Add mobile-responsive layouts for all pages
+  - [x] 4.12 Implement loading states for all page transitions
 
 - [ ] **5.0 Question Type Components Library**
   - [ ] 5.1 Create MultipleChoice component (components/QuestionTypes/MultipleChoice.tsx)
