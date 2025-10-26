@@ -152,9 +152,9 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 4.1 Create landing page (app/page.tsx) with hero section and "Start Survey" button
   - [x] 4.2 Create user info form page (app/start/page.tsx) with Mantine Form
   - [x] 4.3 Add real-time validation to user info form (name, email, phone)
-  - [ ] 4.4 Implement redirect query parameter handling in /start page
-  - [ ] 4.5 Create quiz selection page (app/quizzes/page.tsx) with responsive grid
-  - [ ] 4.6 Create QuizCard component with icon, title, description, hover states
+  - [x] 4.4 Implement redirect query parameter handling in /start page (handled)
+  - [x] 4.5 Create quiz selection page (app/quizzes/page.tsx) with responsive grid
+  - [x] 4.6 Create QuizCard component with icon, title, description, hover states (integrated)
   - [ ] 4.7 Create dynamic quiz page (app/quiz/[slug]/page.tsx)
   - [ ] 4.8 Add session detection and redirect logic to quiz pages
   - [ ] 4.9 Create resume page (app/quiz/[slug]/resume/[token]/page.tsx)
