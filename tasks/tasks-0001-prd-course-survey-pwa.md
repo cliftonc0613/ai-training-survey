@@ -118,7 +118,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 1.7 Update package.json metadata (name, description)
   - [x] 1.8 Configure TypeScript (tsconfig.json) with strict mode
   - [x] 1.9 Set up ESLint and Prettier configuration
-  - [ ] 1.8 Configure Mantine theme with custom colors (#46597e, #F06418)
+  - [x] 1.10 Configure Mantine theme with custom colors (#46597e, #F06418)
   - [ ] 1.9 Create project directory structure (lib/, components/, data/)
   - [ ] 1.10 Initialize Git repository and create .gitignore
 
