@@ -149,7 +149,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 3.12 Add error handling and validation to all API routes (implemented in all routes)
 
 - [ ] **4.0 User Interface - Core Pages**
-  - [ ] 4.1 Create landing page (app/page.tsx) with hero section and "Start Survey" button
+  - [x] 4.1 Create landing page (app/page.tsx) with hero section and "Start Survey" button
   - [ ] 4.2 Create user info form page (app/start/page.tsx) with Mantine Form
   - [ ] 4.3 Add real-time validation to user info form (name, email, phone)
   - [ ] 4.4 Implement redirect query parameter handling in /start page
