@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Table, Paper, Badge, ActionIcon, Group, Text, ScrollArea, Pagination, Select, Stack } from '@mantine/core';
+import { Table, Paper, Badge, ActionIcon, Group, Text, ScrollArea, Pagination, Select } from '@mantine/core';
 import { IconEye, IconDownload, IconRefresh } from '@tabler/icons-react';
 import ExportButton from './ExportButton';
 
@@ -106,10 +106,38 @@ export default function ResponsesTable({ responses, onRefresh }: ResponsesTableP
   };
 
   return (
-    <Paper shadow="sm" radius="md" withBorder>
-      <Group justify="space-between" p="md" style={{ borderBottom: '1px solid #e9ecef' }}>
+    <Paper
+      shadow="lg"
+      radius="lg"
+      withBorder
+      style={{
+        background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+        borderColor: '#e9ecef',
+        overflow: 'hidden',
+      }}
+    >
+      <Group
+        justify="space-between"
+        p="xl"
+        style={{
+          borderBottom: '2px solid #dee2e6',
+          background: 'linear-gradient(90deg, #f8f9fa 0%, #ffffff 100%)',
+        }}
+      >
         <Group gap="md">
-          <Text fw={600}>All Responses ({responses.length})</Text>
+          <Text size="lg" fw={700}>All Responses</Text>
+          <div
+            style={{
+              padding: '4px 12px',
+              borderRadius: '20px',
+              background: 'linear-gradient(135deg, #339af0 0%, #228be6 100%)',
+              color: 'white',
+              fontSize: '14px',
+              fontWeight: 600,
+            }}
+          >
+            {responses.length}
+          </div>
           <Group gap="xs">
             <Text size="sm" c="dimmed">
               Show

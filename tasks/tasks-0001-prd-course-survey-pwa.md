@@ -210,7 +210,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 7.10 Test PWA installability on iOS, Android, desktop
   - [x] 7.11 Validate with Lighthouse PWA audit (score >90)
 
-- [ ] **8.0 Admin Dashboard & Data Visualization**
+- [x] **8.0 Admin Dashboard & Data Visualization**
   - [x] 8.1 Create admin home page (app/admin/page.tsx) with overview stats
   - [x] 8.2 Create admin layout with Sidebar component (components/Admin/Sidebar.tsx)
   - [x] 8.3 Create responses page (app/admin/responses/page.tsx)
@@ -225,8 +225,8 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 8.12 Create UserStats component showing completion rates
   - [x] 8.13 Add quiz completion metrics (total, completed, abandoned)
   - [x] 8.14 Implement basic authentication/access control for admin routes
-  - [ ] 8.15 Style admin dashboard with premium Mantine components (DataTable, Charts)
-  - [ ] 8.16 Add responsive design for admin dashboard (desktop-first)
+  - [x] 8.15 Style admin dashboard with premium Mantine components (DataTable, Charts)
+  - [x] 8.16 Add responsive design for admin dashboard (desktop-first)
 
 - [ ] **9.0 Testing & Quality Assurance**
   - [ ] 9.1 Set up Jest and React Testing Library

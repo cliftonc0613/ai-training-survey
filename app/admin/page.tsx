@@ -96,28 +96,65 @@ export default function AdminDashboard() {
       <Grid>
         {statCards.map((card) => (
           <Grid.Col key={card.title} span={{ base: 12, sm: 6, md: 3 }}>
-            <Paper shadow="sm" p="lg" radius="md" withBorder>
-              <Group justify="space-between">
+            <Paper
+              shadow="md"
+              p="xl"
+              radius="lg"
+              withBorder
+              style={{
+                background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+                borderColor: '#e9ecef',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
+              }}
+            >
+              <Group justify="space-between" align="flex-start">
                 <div>
-                  <Text size="xs" c="dimmed" tt="uppercase" fw={700}>
+                  <Text size="xs" c="dimmed" tt="uppercase" fw={700} mb="sm">
                     {card.title}
                   </Text>
-                  <Text size="xl" fw={700} mt="xs">
+                  <Text size="32px" fw={700} style={{ lineHeight: 1 }}>
                     {card.value.toLocaleString()}
                   </Text>
                 </div>
-                <card.icon size={40} color={card.color} style={{ opacity: 0.6 }} />
+                <div
+                  style={{
+                    padding: '12px',
+                    borderRadius: '12px',
+                    background: `linear-gradient(135deg, ${card.color === 'blue' ? '#339af0' : card.color === 'green' ? '#51cf66' : card.color === 'teal' ? '#20c997' : '#ff922b'} 0%, ${card.color === 'blue' ? '#228be6' : card.color === 'green' ? '#40c057' : card.color === 'teal' ? '#12b886' : '#fd7e14'} 100%)`,
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                  }}
+                >
+                  <card.icon size={32} color="white" stroke={2} />
+                </div>
               </Group>
             </Paper>
           </Grid.Col>
         ))}
       </Grid>
 
-      <Paper shadow="sm" p="xl" radius="md" withBorder>
+      <Paper
+        shadow="lg"
+        p="xl"
+        radius="lg"
+        withBorder
+        style={{
+          background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+          borderColor: '#e9ecef',
+        }}
+      >
         <Group align="center" gap="xl">
           <RingProgress
-            size={180}
-            thickness={16}
+            size={200}
+            thickness={20}
             sections={[
               {
                 value: stats?.completionRate || 0,
@@ -126,23 +163,35 @@ export default function AdminDashboard() {
             ]}
             label={
               <div style={{ textAlign: 'center' }}>
-                <Text size="xl" fw={700}>
+                <Text size="42px" fw={700} style={{ lineHeight: 1 }}>
                   {stats?.completionRate.toFixed(1) || 0}%
                 </Text>
-                <Text size="xs" c="dimmed">
-                  Completion Rate
+                <Text size="sm" c="dimmed" mt="xs" fw={600}>
+                  Completion
                 </Text>
               </div>
             }
+            style={{
+              filter: 'drop-shadow(0 4px 12px rgba(32, 201, 151, 0.3))',
+            }}
           />
-          <Stack gap="xs">
-            <Title order={3}>Survey Completion</Title>
-            <Text c="dimmed">
-              {stats?.completedResponses || 0} out of {stats?.totalResponses || 0}{' '}
+          <Stack gap="md" style={{ flex: 1 }}>
+            <Title order={2}>Survey Completion</Title>
+            <Text size="lg" c="dimmed">
+              <Text component="span" fw={700} c="teal">
+                {stats?.completedResponses || 0}
+              </Text>{' '}
+              out of{' '}
+              <Text component="span" fw={700} c="blue">
+                {stats?.totalResponses || 0}
+              </Text>{' '}
               surveys have been completed
             </Text>
-            <Text size="sm" c="dimmed">
-              {stats?.inProgressResponses || 0} surveys are currently in progress
+            <Text size="md" c="dimmed">
+              <Text component="span" fw={600} c="orange">
+                {stats?.inProgressResponses || 0}
+              </Text>{' '}
+              surveys are currently in progress
             </Text>
           </Stack>
         </Group>
