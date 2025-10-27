@@ -211,14 +211,14 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 7.11 Validate with Lighthouse PWA audit (score >90)
 
 - [ ] **8.0 Admin Dashboard & Data Visualization**
-  - [ ] 8.1 Create admin home page (app/admin/page.tsx) with overview stats
-  - [ ] 8.2 Create admin layout with Sidebar component (components/Admin/Sidebar.tsx)
-  - [ ] 8.3 Create responses page (app/admin/responses/page.tsx)
-  - [ ] 8.4 Create ResponsesTable component with sortable columns
-  - [ ] 8.5 Add ResponseFilters component (filter by quiz, date range, user)
+  - [x] 8.1 Create admin home page (app/admin/page.tsx) with overview stats
+  - [x] 8.2 Create admin layout with Sidebar component (components/Admin/Sidebar.tsx)
+  - [x] 8.3 Create responses page (app/admin/responses/page.tsx)
+  - [x] 8.4 Create ResponsesTable component with sortable columns
+  - [x] 8.5 Add ResponseFilters component (filter by quiz, date range, user)
   - [ ] 8.6 Implement pagination for responses table
-  - [ ] 8.7 Create ExportButton component for CSV export
-  - [ ] 8.8 Add CSV download functionality using Papa Parse or similar
+  - [x] 8.7 Create ExportButton component for CSV export
+  - [x] 8.8 Add CSV download functionality using Papa Parse or similar
   - [ ] 8.9 Create analytics page (app/admin/analytics/page.tsx)
   - [ ] 8.10 Install Recharts or Chart.js for visualizations
   - [ ] 8.11 Create AnalyticsChart component for response trends
