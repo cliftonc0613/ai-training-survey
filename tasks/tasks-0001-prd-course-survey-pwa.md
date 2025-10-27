@@ -224,7 +224,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 8.11 Create AnalyticsChart component for response trends
   - [x] 8.12 Create UserStats component showing completion rates
   - [x] 8.13 Add quiz completion metrics (total, completed, abandoned)
-  - [ ] 8.14 Implement basic authentication/access control for admin routes
+  - [x] 8.14 Implement basic authentication/access control for admin routes
   - [ ] 8.15 Style admin dashboard with premium Mantine components (DataTable, Charts)
   - [ ] 8.16 Add responsive design for admin dashboard (desktop-first)
 
