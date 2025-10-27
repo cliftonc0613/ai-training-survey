@@ -216,7 +216,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 8.3 Create responses page (app/admin/responses/page.tsx)
   - [x] 8.4 Create ResponsesTable component with sortable columns
   - [x] 8.5 Add ResponseFilters component (filter by quiz, date range, user)
-  - [ ] 8.6 Implement pagination for responses table
+  - [x] 8.6 Implement pagination for responses table
   - [x] 8.7 Create ExportButton component for CSV export
   - [x] 8.8 Add CSV download functionality using Papa Parse or similar
   - [ ] 8.9 Create analytics page (app/admin/analytics/page.tsx)

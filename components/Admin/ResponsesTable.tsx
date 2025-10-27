@@ -1,6 +1,7 @@
 'use client';
 
-import { Table, Paper, Badge, ActionIcon, Group, Text, ScrollArea } from '@mantine/core';
+import { useState } from 'react';
+import { Table, Paper, Badge, ActionIcon, Group, Text, ScrollArea, Pagination, Select, Stack } from '@mantine/core';
 import { IconEye, IconDownload, IconRefresh } from '@tabler/icons-react';
 import ExportButton from './ExportButton';
 
@@ -23,6 +24,14 @@ interface ResponsesTableProps {
 }
 
 export default function ResponsesTable({ responses, onRefresh }: ResponsesTableProps) {
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState('10');
+
+  const pageSizeNum = parseInt(pageSize);
+  const totalPages = Math.ceil(responses.length / pageSizeNum);
+  const startIndex = (page - 1) * pageSizeNum;
+  const endIndex = startIndex + pageSizeNum;
+  const paginatedResponses = responses.slice(startIndex, endIndex);
   const getQuizTitle = (quizId: string) => {
     const titles: Record<string, string> = {
       'survey-30days': '30-Day Follow-Up',
@@ -66,7 +75,7 @@ export default function ResponsesTable({ responses, onRefresh }: ResponsesTableP
     });
   };
 
-  const rows = responses.map((response) => (
+  const rows = paginatedResponses.map((response) => (
     <Table.Tr key={response.id}>
       <Table.Td>{response.user?.name || 'N/A'}</Table.Td>
       <Table.Td>{response.user?.email || 'N/A'}</Table.Td>
@@ -89,10 +98,34 @@ export default function ResponsesTable({ responses, onRefresh }: ResponsesTableP
     </Table.Tr>
   ));
 
+  const handlePageSizeChange = (value: string | null) => {
+    if (value) {
+      setPageSize(value);
+      setPage(1); // Reset to first page when changing page size
+    }
+  };
+
   return (
     <Paper shadow="sm" radius="md" withBorder>
       <Group justify="space-between" p="md" style={{ borderBottom: '1px solid #e9ecef' }}>
-        <Text fw={600}>All Responses ({responses.length})</Text>
+        <Group gap="md">
+          <Text fw={600}>All Responses ({responses.length})</Text>
+          <Group gap="xs">
+            <Text size="sm" c="dimmed">
+              Show
+            </Text>
+            <Select
+              value={pageSize}
+              onChange={handlePageSizeChange}
+              data={['10', '25', '50', '100']}
+              w={70}
+              size="xs"
+            />
+            <Text size="sm" c="dimmed">
+              per page
+            </Text>
+          </Group>
+        </Group>
         <Group gap="xs">
           <ActionIcon variant="light" onClick={onRefresh}>
             <IconRefresh size={18} />
@@ -127,6 +160,20 @@ export default function ResponsesTable({ responses, onRefresh }: ResponsesTableP
           </Table.Tbody>
         </Table>
       </ScrollArea>
+
+      {totalPages > 1 && (
+        <Group justify="center" p="md" style={{ borderTop: '1px solid #e9ecef' }}>
+          <Pagination
+            value={page}
+            onChange={setPage}
+            total={totalPages}
+            size="sm"
+          />
+          <Text size="sm" c="dimmed">
+            Showing {startIndex + 1}-{Math.min(endIndex, responses.length)} of {responses.length}
+          </Text>
+        </Group>
+      )}
     </Paper>
   );
 }
