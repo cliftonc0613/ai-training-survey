@@ -79,42 +79,78 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const userId = searchParams.get('userId');
 
-    if (!userId) {
+    // If userId is provided, return user's quiz responses
+    if (userId) {
+      // Get all quiz responses for user
+      const { data, error } = await db.getQuizResponsesByUser(userId);
+
+      if (error) {
+        console.error('Error fetching quiz responses:', error);
+        return NextResponse.json(
+          { error: 'Failed to fetch quiz responses', details: error.message },
+          { status: 500 }
+        );
+      }
+
+      // Format responses
+      const quizResponses = data.map((response) => ({
+        id: response.id,
+        quizId: response.quiz_id,
+        userId: response.user_id,
+        responses: response.responses,
+        startedAt: response.started_at,
+        completedAt: response.completed_at,
+        progress: response.progress,
+        synced: response.synced,
+        createdAt: response.created_at,
+        updatedAt: response.updated_at,
+      }));
+
       return NextResponse.json(
-        { error: 'userId parameter is required' },
-        { status: 400 }
+        {
+          quizResponses,
+          count: quizResponses.length,
+        },
+        { status: 200 }
       );
     }
 
-    // Get all quiz responses for user
-    const { data, error } = await db.getQuizResponsesByUser(userId);
-
-    if (error) {
-      console.error('Error fetching quiz responses:', error);
-      return NextResponse.json(
-        { error: 'Failed to fetch quiz responses', details: error.message },
-        { status: 500 }
-      );
-    }
-
-    // Format responses
-    const quizResponses = data.map((response) => ({
-      id: response.id,
-      quizId: response.quiz_id,
-      userId: response.user_id,
-      responses: response.responses,
-      startedAt: response.started_at,
-      completedAt: response.completed_at,
-      progress: response.progress,
-      synced: response.synced,
-      createdAt: response.created_at,
-      updatedAt: response.updated_at,
-    }));
+    // Otherwise, return list of available quizzes
+    const quizzes = [
+      {
+        id: 'survey-30days',
+        title: '30-Day Follow-Up Survey',
+        description: 'Track your progress 30 days after course completion',
+        estimatedTime: '8 minutes',
+        questionCount: 17,
+      },
+      {
+        id: 'survey-90days',
+        title: '90-Day Progress Check-In',
+        description: 'Assess your career progress and job search status',
+        estimatedTime: '12 minutes',
+        questionCount: 29,
+      },
+      {
+        id: 'survey-180days',
+        title: '6-Month Impact Assessment',
+        description: 'Measure long-term career progression and skill application',
+        estimatedTime: '15 minutes',
+        questionCount: 16,
+      },
+      {
+        id: 'survey-12months-final',
+        title: '12-Month Final Assessment',
+        description: 'Comprehensive evaluation of your career transformation',
+        estimatedTime: '10 minutes',
+        questionCount: 21,
+      },
+    ];
 
     return NextResponse.json(
       {
-        quizResponses,
-        count: quizResponses.length,
+        quizzes,
+        count: quizzes.length,
       },
       { status: 200 }
     );

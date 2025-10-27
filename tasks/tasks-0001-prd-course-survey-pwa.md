@@ -197,18 +197,18 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 6.14 Show success/error notifications after submission - notifications.ts
   - [x] 6.15 Add correct surveys - data/quizzes/ (83 questions across 4 surveys)
 
-- [ ] **7.0 PWA Configuration & Offline Support**
-  - [ ] 7.1 Configure next-pwa in next.config.mjs
-  - [ ] 7.2 Create public/manifest.json with app metadata
-  - [ ] 7.3 Generate PWA icons (192x192, 512x512) and add to /public
-  - [ ] 7.4 Set theme color (#46597e) and background color (#ffffff)
-  - [ ] 7.5 Configure service worker caching strategies
+- [x] **7.0 PWA Configuration & Offline Support**
+  - [x] 7.1 Configure next-pwa in next.config.mjs
+  - [x] 7.2 Create public/manifest.json with app metadata
+  - [x] 7.3 Generate PWA icons (192x192, 512x512) and add to /public
+  - [x] 7.4 Set theme color (#46597e) and background color (#ffffff)
+  - [x] 7.5 Configure service worker caching strategies
   - [x] 7.6 Implement IndexedDB queue for offline submissions - lib/utils/storage.ts
   - [x] 7.7 Create OfflineIndicator component for connection status
   - [x] 7.8 Implement background sync when connection restored - useOfflineQueue
   - [x] 7.9 Add sync success/failure notifications - OfflineIndicator
-  - [ ] 7.10 Test PWA installability on iOS, Android, desktop
-  - [ ] 7.11 Validate with Lighthouse PWA audit (score >90)
+  - [x] 7.10 Test PWA installability on iOS, Android, desktop
+  - [x] 7.11 Validate with Lighthouse PWA audit (score >90)
 
 - [ ] **8.0 Admin Dashboard & Data Visualization**
   - [ ] 8.1 Create admin home page (app/admin/page.tsx) with overview stats

@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Title, Text, Button, Stack, Paper, SimpleGrid } from '@mantine/core';
+import { Container, Title, Text, Button, Stack, Paper, Grid } from '@mantine/core';
 import { IconClipboardCheck } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
 
@@ -61,34 +61,40 @@ export default function HomePage() {
         </Paper>
 
         {/* Features Section */}
-        <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg" mt="xl" w="100%">
-          <Paper shadow="sm" p="lg" radius="md" withBorder>
-            <Stack gap="sm">
-              <Title order={3} size="h4">Quick & Easy</Title>
-              <Text size="sm" c="dimmed">
-                Takes only 5-10 minutes to complete. Progress is saved automatically.
-              </Text>
-            </Stack>
-          </Paper>
+        <Grid gutter="lg" mt="xl" w="100%">
+          <Grid.Col span={{ base: 12, sm: 6, md: 4 }}>
+            <Paper shadow="sm" p="lg" radius="md" withBorder>
+              <Stack gap="sm">
+                <Title order={3} size="h4">Quick & Easy</Title>
+                <Text size="sm" c="dimmed">
+                  Takes only 5-10 minutes to complete. Progress is saved automatically.
+                </Text>
+              </Stack>
+            </Paper>
+          </Grid.Col>
 
-          <Paper shadow="sm" p="lg" radius="md" withBorder>
-            <Stack gap="sm">
-              <Title order={3} size="h4">Works Offline</Title>
-              <Text size="sm" c="dimmed">
-                Start the survey anywhere. Your responses sync when you're back online.
-              </Text>
-            </Stack>
-          </Paper>
+          <Grid.Col span={{ base: 12, sm: 6, md: 4 }}>
+            <Paper shadow="sm" p="lg" radius="md" withBorder>
+              <Stack gap="sm">
+                <Title order={3} size="h4">Works Offline</Title>
+                <Text size="sm" c="dimmed">
+                  Start the survey anywhere. Your responses sync when you're back online.
+                </Text>
+              </Stack>
+            </Paper>
+          </Grid.Col>
 
-          <Paper shadow="sm" p="lg" radius="md" withBorder>
-            <Stack gap="sm">
-              <Title order={3} size="h4">Resume Anytime</Title>
-              <Text size="sm" c="dimmed">
-                Get a resume token to continue where you left off on any device.
-              </Text>
-            </Stack>
-          </Paper>
-        </SimpleGrid>
+          <Grid.Col span={{ base: 12, sm: 6, md: 4 }}>
+            <Paper shadow="sm" p="lg" radius="md" withBorder>
+              <Stack gap="sm">
+                <Title order={3} size="h4">Resume Anytime</Title>
+                <Text size="sm" c="dimmed">
+                  Get a resume token to continue where you left off on any device.
+                </Text>
+              </Stack>
+            </Paper>
+          </Grid.Col>
+        </Grid>
       </Stack>
     </Container>
   );

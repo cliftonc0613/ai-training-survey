@@ -1,0 +1,57 @@
+{
+  "name": "AI Training Course Survey",
+  "short_name": "AI Survey",
+  "description": "Progressive web app for AI training course surveys with offline support and resume token functionality",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#46597e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Start Survey",
+      "short_name": "Start",
+      "description": "Begin a new survey",
+      "url": "/start",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Resume Survey",
+      "short_name": "Resume",
+      "description": "Continue where you left off",
+      "url": "/resume",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
