@@ -229,8 +229,8 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 8.16 Add responsive design for admin dashboard (desktop-first)
 
 - [ ] **9.0 Testing & Quality Assurance**
-  - [ ] 9.1 Set up Jest and React Testing Library
-  - [ ] 9.2 Write unit tests for validation utilities (__tests__/utils/validation.test.ts)
+  - [x] 9.1 Set up Jest and React Testing Library
+  - [x] 9.2 Write unit tests for validation utilities (__tests__/utils/validation.test.ts)
   - [ ] 9.3 Write tests for QuizCard component (__tests__/components/QuizCard.test.tsx)
   - [ ] 9.4 Write tests for MultipleChoice component
   - [ ] 9.5 Write tests for user API endpoint (__tests__/api/user.test.ts)
