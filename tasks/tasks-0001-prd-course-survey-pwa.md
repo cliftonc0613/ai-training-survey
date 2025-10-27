@@ -219,11 +219,11 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 8.6 Implement pagination for responses table
   - [x] 8.7 Create ExportButton component for CSV export
   - [x] 8.8 Add CSV download functionality using Papa Parse or similar
-  - [ ] 8.9 Create analytics page (app/admin/analytics/page.tsx)
-  - [ ] 8.10 Install Recharts or Chart.js for visualizations
-  - [ ] 8.11 Create AnalyticsChart component for response trends
-  - [ ] 8.12 Create UserStats component showing completion rates
-  - [ ] 8.13 Add quiz completion metrics (total, completed, abandoned)
+  - [x] 8.9 Create analytics page (app/admin/analytics/page.tsx)
+  - [x] 8.10 Install Recharts or Chart.js for visualizations
+  - [x] 8.11 Create AnalyticsChart component for response trends
+  - [x] 8.12 Create UserStats component showing completion rates
+  - [x] 8.13 Add quiz completion metrics (total, completed, abandoned)
   - [ ] 8.14 Implement basic authentication/access control for admin routes
   - [ ] 8.15 Style admin dashboard with premium Mantine components (DataTable, Charts)
   - [ ] 8.16 Add responsive design for admin dashboard (desktop-first)
