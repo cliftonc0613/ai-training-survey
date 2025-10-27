@@ -227,6 +227,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 8.14 Implement basic authentication/access control for admin routes
   - [x] 8.15 Style admin dashboard with premium Mantine components (DataTable, Charts)
   - [x] 8.16 Add responsive design for admin dashboard (desktop-first)
+  - [ ] 8.17 Add these to Analytics Outcome Targets Document - completion rate, certificate pass rate, employment rate, avg wage, Avg time to employment in days. I think this should be manually entered? But maybe you could help me with this? 
 
 - [ ] **9.0 Testing & Quality Assurance**
   - [x] 9.1 Set up Jest and React Testing Library
