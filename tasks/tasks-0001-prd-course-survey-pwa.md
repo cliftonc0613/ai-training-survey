@@ -101,6 +101,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
 - `__tests__/e2e/save-resume-flow.spec.ts` - E2E test for save & resume functionality
 - `__tests__/e2e/offline-functionality.spec.ts` - E2E test for offline mode and IndexedDB
 - `__tests__/e2e/accessibility.spec.ts` - Accessibility tests with axe-core (WCAG 2.1 AA)
+- `__tests__/e2e/performance.spec.ts` - Performance tests with Core Web Vitals (<3s target)
 
 ### Notes
 - Tests should be placed in `__tests__/` directory mirroring the source structure
@@ -248,7 +249,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 9.12 Cross-browser testing (Chrome, Firefox, Safari, Edge) - Configured in playwright.config.ts, see docs/CROSS_BROWSER_TESTING.md
   - [x] 9.13 Mobile device testing (iOS Safari, Chrome Android) - Configured 5 mobile devices (phones + tablets), see docs/MOBILE_DEVICE_TESTING.md
   - [x] 9.14 Accessibility testing with axe DevTools (__tests__/e2e/accessibility.spec.ts) - 16 WCAG 2.1 AA tests, see docs/ACCESSIBILITY_TESTING.md
-  - [ ] 9.15 Performance testing with Lighthouse (target: <3s load time)
+  - [x] 9.15 Performance testing with Lighthouse (target: <3s load time) (__tests__/e2e/performance.spec.ts) - 16 performance tests, see docs/PERFORMANCE_TESTING.md
   - [ ] 9.16 Fix all identified bugs and issues
 
 - [ ] **10.0 Deployment & Production Setup**
