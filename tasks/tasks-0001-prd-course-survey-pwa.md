@@ -245,7 +245,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 9.10 Write E2E test for save & resume functionality (__tests__/e2e/save-resume-flow.spec.ts)
   - [x] 9.11 Test offline functionality (airplane mode simulation) (__tests__/e2e/offline-functionality.spec.ts)
   - [x] 9.12 Cross-browser testing (Chrome, Firefox, Safari, Edge) - Configured in playwright.config.ts, see docs/CROSS_BROWSER_TESTING.md
-  - [ ] 9.13 Mobile device testing (iOS Safari, Chrome Android)
+  - [x] 9.13 Mobile device testing (iOS Safari, Chrome Android) - Configured 5 mobile devices (phones + tablets), see docs/MOBILE_DEVICE_TESTING.md
   - [ ] 9.14 Accessibility testing with axe DevTools
   - [ ] 9.15 Performance testing with Lighthouse (target: <3s load time)
   - [ ] 9.16 Fix all identified bugs and issues

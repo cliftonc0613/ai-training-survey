@@ -18,6 +18,7 @@ export default defineConfig({
   },
 
   projects: [
+    // Desktop browsers
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
@@ -33,6 +34,28 @@ export default defineConfig({
     {
       name: 'edge',
       use: { ...devices['Desktop Edge'], channel: 'msedge' },
+    },
+
+    // Mobile devices
+    {
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 5'] },
+    },
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 13'] },
+    },
+    {
+      name: 'Mobile Safari Landscape',
+      use: { ...devices['iPhone 13 landscape'] },
+    },
+    {
+      name: 'Tablet Safari',
+      use: { ...devices['iPad (gen 7)'] },
+    },
+    {
+      name: 'Tablet Chrome',
+      use: { ...devices['Galaxy Tab S4'] },
     },
   ],
 
