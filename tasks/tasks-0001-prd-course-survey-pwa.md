@@ -237,7 +237,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
   - [x] 9.5 Write tests for user API endpoint (__tests__/api/user.test.ts) - Skipped: Next.js 15 Edge Runtime requires E2E testing
   - [x] 9.6 Write tests for quiz API endpoint (__tests__/api/quiz.test.ts) - Skipped: Next.js 15 Edge Runtime requires E2E testing
   - [x] 9.7 Set up Playwright for E2E testing
-  - [ ] 9.8 Write E2E test for standard quiz flow (__tests__/e2e/quiz-flow.spec.ts)
+  - [x] 9.8 Write E2E test for standard quiz flow (__tests__/e2e/quiz-flow.spec.ts)
   - [ ] 9.9 Write E2E test for direct quiz link flow
   - [ ] 9.10 Write E2E test for save & resume functionality
   - [ ] 9.11 Test offline functionality (airplane mode simulation)
