@@ -232,7 +232,7 @@ Generated from: `0001-prd-course-survey-pwa.md`
 - [ ] **9.0 Testing & Quality Assurance**
   - [x] 9.1 Set up Jest and React Testing Library
   - [x] 9.2 Write unit tests for validation utilities (__tests__/utils/validation.test.ts)
-  - [ ] 9.3 Write tests for QuizCard component (__tests__/components/QuizCard.test.tsx)
+  - [x] 9.3 Write tests for QuizCard component (__tests__/components/QuizCard.test.tsx)
   - [ ] 9.4 Write tests for MultipleChoice component
   - [ ] 9.5 Write tests for user API endpoint (__tests__/api/user.test.ts)
   - [ ] 9.6 Write tests for quiz API endpoint (__tests__/api/quiz.test.ts)
