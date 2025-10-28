@@ -87,20 +87,15 @@ All E2E test suites have been created and are ready for execution:
 **Issue**: Console warnings about `themeColor` in metadata export.
 
 **Severity**: Low (cosmetic)
-**Status**: ⚠️ Next.js 15 deprecation
+**Status**: ✅ Fixed
 
 **Resolution**:
-```typescript
-// Move from metadata to viewport export
-export const viewport = {
-  themeColor: '#your-color',
-};
-```
+- Moved `themeColor` from metadata to viewport export in root layout
+- Removed redundant viewport meta tag (now handled by export)
+- Client components (start, quizzes pages) don't export metadata
 
-**Files to Update**:
-- `app/layout.tsx`
-- `app/start/page.tsx`
-- `app/quizzes/page.tsx`
+**Files Modified**:
+- `app/layout.tsx` - Added viewport export, removed themeColor from metadata
 
 ## Test Execution Report
 
