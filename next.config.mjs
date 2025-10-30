@@ -112,4 +112,6 @@ export default withBundleAnalyzer(pwaConfig({
   experimental: {
     optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
   },
+  output: 'standalone',
+  outputFileTracingRoot: process.cwd(),
 }));
