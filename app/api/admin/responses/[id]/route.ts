@@ -1,15 +1,16 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/supabaseClient';
+import type { QuizResponse, User, Quiz } from '@/lib/types/database';
 
 export async function GET(
-  request: Request,
+  _request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const { id } = await params;
 
     // Fetch the quiz response
-    const { data: response, error: responseError } = await db.getQuizResponse(id);
+    const { data: response, error: responseError } = await db.getQuizResponse(id) as { data: QuizResponse | null; error: any };
 
     if (responseError || !response) {
       console.error('Error fetching quiz response:', responseError);
@@ -20,14 +21,14 @@ export async function GET(
     }
 
     // Fetch the associated user
-    const { data: user, error: userError } = await db.getUser(response.user_id);
+    const { data: user, error: userError } = await db.getUser(response.user_id) as { data: User | null; error: any };
 
     if (userError) {
       console.error('Error fetching user:', userError);
     }
 
     // Fetch the associated quiz
-    const { data: quiz, error: quizError } = await db.getQuiz(response.quiz_id);
+    const { data: quiz, error: quizError } = await db.getQuiz(response.quiz_id) as { data: Quiz | null; error: any };
 
     if (quizError) {
       console.error('Error fetching quiz:', quizError);

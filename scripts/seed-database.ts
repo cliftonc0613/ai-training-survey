@@ -92,7 +92,7 @@ async function seedDatabase() {
           console.log(`  ⚠ API returned ${response.status} for ${quizId}`);
         }
       } catch (err) {
-        console.log(`  ⚠ Failed to fetch ${quizId}:`, err.message);
+        console.log(`  ⚠ Failed to fetch ${quizId}:`, err instanceof Error ? err.message : String(err));
       }
     }
 
@@ -106,7 +106,7 @@ async function seedDatabase() {
     console.log('💾 Inserting quizzes into Supabase...\n');
 
     for (const quiz of quizzes) {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('quizzes')
         .upsert({
           id: quiz.id,
@@ -152,7 +152,7 @@ async function seedDatabase() {
     console.log('\n✨ Database seeding completed successfully!\n');
 
   } catch (error) {
-    console.error('\n❌ Seeding failed:', error.message);
+    console.error('\n❌ Seeding failed:', error instanceof Error ? error.message : String(error));
     process.exit(1);
   }
 }
