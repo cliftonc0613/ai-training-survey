@@ -10,7 +10,9 @@ export type QuestionType =
   | 'dropdown'
   | 'slider'
   | 'text'
+  | 'text-short'
   | 'text-long'
+  | 'number'
   | 'yes-no';
 
 export interface Question {
