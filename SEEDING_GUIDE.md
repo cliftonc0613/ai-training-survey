@@ -39,6 +39,19 @@ File: `supabase/migrations/004_change_quiz_id_to_text.sql`
 
 ⚠️ **IMPORTANT**: This changes `quizzes.id` from UUID to TEXT to support human-readable IDs like "survey-30days".
 
+#### Migration 5: Seed Quizzes (NEW - Recommended Method!)
+File: `supabase/migrations/005_seed_quizzes.sql`
+
+🎯 **NEW SIMPLIFIED METHOD**: This migration automatically seeds all 4 surveys with complete question data. This is now the **recommended approach** instead of running the TypeScript seeding script.
+
+**Contains:**
+- 30-Day Follow-Up Survey (17 questions)
+- 90-Day Progress Check-In (29 questions)
+- 6-Month Impact Assessment (16 questions)
+- 12-Month Final Assessment (21 questions)
+
+Run this migration and **skip Step 2 below** (the TypeScript seeding script).
+
 ### 1.3 Verify Tables Exist
 
 Run this query to verify all tables were created:
@@ -55,7 +68,11 @@ You should see:
 - ✅ `quiz_responses`
 - ✅ `users`
 
-## Step 2: Seed Quiz Data
+## Step 2: Seed Quiz Data (Optional - Alternative Method)
+
+⚠️ **NOTE**: If you ran Migration 5 (005_seed_quizzes.sql) above, **skip this entire step** - your database is already seeded!
+
+This TypeScript-based seeding method is an alternative approach if you prefer programmatic seeding:
 
 ### 2.1 Ensure Dev Server is Running
 
@@ -119,6 +136,8 @@ npm run seed
 ```
 
 ## Step 3: Verify Data in Supabase
+
+After running **either** Migration 5 (SQL method) **or** the TypeScript seeding script (Step 2), verify your data:
 
 Go to Supabase → Table Editor → `quizzes` table
 
