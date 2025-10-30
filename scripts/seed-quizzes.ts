@@ -208,7 +208,7 @@ async function seedQuizzes() {
     // Check if quizzes already exist
     const { data: existingQuizzes, error: checkError } = await supabase
       .from('quizzes')
-      .select('id, title');
+      .select('id, title') as { data: Array<{ id: string; title: string }> | null; error: any };
 
     if (checkError) {
       console.error('❌ Error checking existing quizzes:', checkError.message);
@@ -236,7 +236,7 @@ async function seedQuizzes() {
         description: quiz.description,
         questions: quiz.questions as any,
         estimated_time: quiz.estimated_time,
-      });
+      } as any);
 
       if (insertError) {
         console.error(`❌ Error inserting "${quiz.title}":`, insertError.message);
@@ -250,7 +250,7 @@ async function seedQuizzes() {
     const { data: finalQuizzes, error: finalError } = await supabase
       .from('quizzes')
       .select('id, title, estimated_time')
-      .order('created_at', { ascending: true });
+      .order('created_at', { ascending: true }) as { data: Array<{ id: string; title: string; estimated_time: number }> | null; error: any };
 
     if (finalError) {
       throw finalError;
