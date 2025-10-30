@@ -134,7 +134,7 @@ export default function QuizzesPage() {
                         {quiz.title}
                       </Title>
                       <Badge color="blue" variant="light">
-                        {quiz.questions.length} questions
+                        {(quiz as any).questionCount || (quiz.questions?.length ?? 0)} questions
                       </Badge>
                     </Group>
 
@@ -147,7 +147,7 @@ export default function QuizzesPage() {
                     <Group gap="xs">
                       <IconClock size={16} />
                       <Text size="sm" c="dimmed">
-                        ~{quiz.estimatedTime} min
+                        ~{(quiz as any).estimatedTime || (quiz as any).estimated_time}
                       </Text>
                     </Group>
 
