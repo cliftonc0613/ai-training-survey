@@ -71,4 +71,15 @@ export const db = {
   async getQuizResponse(id: string) {
     return supabase.from('quiz_responses').select('*').eq('id', id).single();
   },
+
+  async getAllQuizResponses() {
+    return supabase
+      .from('quiz_responses')
+      .select('*')
+      .order('created_at', { ascending: false });
+  },
+
+  async getAllUsers() {
+    return supabase.from('users').select('*').order('created_at', { ascending: false });
+  },
 };
