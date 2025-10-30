@@ -12,12 +12,19 @@ export const metadata = {
   title: 'AI Training Course Survey',
   description: 'Progressive web app for AI training course surveys with offline support',
   manifest: '/manifest.json',
-  themeColor: '#46597e',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
     title: 'AI Survey',
   },
+};
+
+export const viewport = {
+  themeColor: '#46597e',
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({ children }: { children: any }) {
@@ -28,10 +35,6 @@ export default function RootLayout({ children }: { children: any }) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
-        />
       </head>
       <body>
         <MantineProvider theme={theme}>
