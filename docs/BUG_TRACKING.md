@@ -97,6 +97,53 @@ All E2E test suites have been created and are ready for execution:
 **Files Modified**:
 - `app/layout.tsx` - Added viewport export, removed themeColor from metadata
 
+### 6. Next.js 15 API Route TypeScript Errors
+
+**Issue**: Dynamic route parameters in Next.js 15 are now Promise types, causing TypeScript errors.
+
+**Severity**: High (blocks build)
+**Status**: ✅ Fixed
+
+**Resolution**:
+- Updated all dynamic route params to `Promise<{ id: string }>` type
+- Added `await params` before accessing params properties
+- Added null checks after Supabase queries to resolve type inference
+- Prefixed unused request parameters with underscore
+
+**Files Modified**:
+- All API routes in `app/api/` directory (9 route files)
+- Component files with unused parameters
+- Library utilities for type safety
+
+### 7. React Hydration Mismatch from Browser Extensions
+
+**Issue**: Browser extensions (ClickUp, etc) add classes to <body> tag causing hydration warnings.
+
+**Severity**: Low (cosmetic, no functionality impact)
+**Status**: ✅ Fixed
+
+**Resolution**:
+- Added `suppressHydrationWarning` to `<body>` tag in root layout
+- Prevents React from throwing hydration errors when browser extensions modify the DOM
+
+**Files Modified**:
+- `app/layout.tsx` - Added suppressHydrationWarning attribute
+
+### 8. Next.js Workspace Root Warning
+
+**Issue**: Multiple lockfiles detected, causing workspace root inference warning.
+
+**Severity**: Low (cosmetic)
+**Status**: ✅ Fixed
+
+**Resolution**:
+- Added `outputFileTracingRoot: process.cwd()` to next.config.mjs
+- Added `output: 'standalone'` for optimized Vercel deployment
+- Silences warning about multiple lockfiles
+
+**Files Modified**:
+- `next.config.mjs` - Added output configuration
+
 ## Test Execution Report
 
 ### Expected Test Behavior
