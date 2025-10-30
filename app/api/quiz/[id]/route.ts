@@ -80,7 +80,16 @@ export async function GET(
       );
     }
 
-    // Try to get quiz from database first
+    // Check if mock quiz exists first (for development)
+    const mockQuiz = MOCK_QUIZZES[id];
+    if (mockQuiz) {
+      return NextResponse.json(
+        { quiz: mockQuiz },
+        { status: 200 }
+      );
+    }
+
+    // Try to get quiz from database (for production with real UUIDs)
     const { data, error } = await db.getQuiz(id);
 
     // If quiz exists in database, use it
@@ -99,19 +108,10 @@ export async function GET(
       return NextResponse.json({ quiz }, { status: 200 });
     }
 
-    // Fall back to mock data if not in database
-    const mockQuiz = MOCK_QUIZZES[id];
-    if (!mockQuiz) {
-      return NextResponse.json(
-        { error: 'Quiz not found' },
-        { status: 404 }
-      );
-    }
-
-    // Return mock quiz data
+    // Not found in either mock data or database
     return NextResponse.json(
-      { quiz: mockQuiz },
-      { status: 200 }
+      { error: 'Quiz not found' },
+      { status: 404 }
     );
   } catch (error) {
     console.error('Unexpected error in GET /api/quiz/[id]:', error);
