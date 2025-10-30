@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateResumeToken, validateResumeToken } from '@/lib/utils/resume-token';
 
-export async function POST(request: NextRequest) {
+export async function POST(_request: NextRequest) {
   try {
     // Generate a new resume token
     const resumeToken = generateResumeToken();

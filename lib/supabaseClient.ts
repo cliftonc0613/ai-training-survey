@@ -26,7 +26,7 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
 export const db = {
   // Users
   async createUser(user: Database['public']['Tables']['users']['Insert']) {
-    return supabase.from('users').insert(user).select().single();
+    return supabase.from('users').insert(user as any).select().single();
   },
 
   async getUserByResumeToken(resumeToken: string) {
@@ -34,7 +34,7 @@ export const db = {
   },
 
   async updateUser(id: string, updates: Database['public']['Tables']['users']['Update']) {
-    return supabase.from('users').update(updates).eq('id', id).select().single();
+    return (supabase.from('users') as any).update(updates).eq('id', id).select().single();
   },
 
   // Quizzes
@@ -50,14 +50,14 @@ export const db = {
   async createQuizResponse(
     response: Database['public']['Tables']['quiz_responses']['Insert']
   ) {
-    return supabase.from('quiz_responses').insert(response).select().single();
+    return supabase.from('quiz_responses').insert(response as any).select().single();
   },
 
   async updateQuizResponse(
     id: string,
     updates: Database['public']['Tables']['quiz_responses']['Update']
   ) {
-    return supabase.from('quiz_responses').update(updates).eq('id', id).select().single();
+    return (supabase.from('quiz_responses') as any).update(updates).eq('id', id).select().single();
   },
 
   async getQuizResponsesByUser(userId: string) {

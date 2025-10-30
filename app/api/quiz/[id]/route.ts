@@ -2,11 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/supabaseClient';
 
 export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
+  _request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
     if (!id) {
       return NextResponse.json(
@@ -33,15 +33,18 @@ export async function GET(
       );
     }
 
+    // Type assertion after null check
+    const quizData = data as any;
+
     // Format quiz response
     const quiz = {
-      id: data.id,
-      title: data.title,
-      description: data.description,
-      questions: data.questions,
-      estimatedTime: data.estimated_time,
-      createdAt: data.created_at,
-      updatedAt: data.updated_at,
+      id: quizData.id,
+      title: quizData.title,
+      description: quizData.description,
+      questions: quizData.questions,
+      estimatedTime: quizData.estimated_time,
+      createdAt: quizData.created_at,
+      updatedAt: quizData.updated_at,
     };
 
     return NextResponse.json(

@@ -14,8 +14,15 @@ export async function GET() {
       );
     }
 
+    if (!responses || responses.length === 0) {
+      return NextResponse.json(
+        { error: 'No responses found' },
+        { status: 404 }
+      );
+    }
+
     // Calculate responses by quiz
-    const responsesByQuiz = responses.reduce((acc: any, response) => {
+    const responsesByQuiz = responses.reduce((acc: any, response: any) => {
       const quizId = response.quiz_id;
       if (!acc[quizId]) {
         acc[quizId] = {
@@ -39,8 +46,8 @@ export async function GET() {
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
 
     const responsesByDay = responses
-      .filter((r) => new Date(r.created_at) >= thirtyDaysAgo)
-      .reduce((acc: any, response) => {
+      .filter((r: any) => new Date(r.created_at) >= thirtyDaysAgo)
+      .reduce((acc: any, response: any) => {
         const date = new Date(response.created_at).toISOString().split('T')[0];
         if (!acc[date]) {
           acc[date] = 0;
@@ -56,7 +63,7 @@ export async function GET() {
 
     // Calculate completion rate
     const totalResponses = responses.length;
-    const completedResponses = responses.filter((r) => r.progress === 100).length;
+    const completedResponses = responses.filter((r: any) => r.progress === 100).length;
     const completionRate =
       totalResponses > 0 ? (completedResponses / totalResponses) * 100 : 0;
 

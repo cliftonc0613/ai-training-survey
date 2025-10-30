@@ -23,7 +23,7 @@ export default function SliderInput({
   step = 1,
   marks,
   labels,
-  required = false,
+  required: _required = false,
   error,
   showValue = true,
 }: SliderInputProps) {
