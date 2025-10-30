@@ -66,7 +66,7 @@ export default function ResponseFilters({ onFilterChange }: ResponseFiltersProps
           type="range"
           placeholder="Pick date range"
           value={dateRange}
-          onChange={setDateRange}
+          onChange={(value) => setDateRange(value as [Date | null, Date | null])}
           clearable
           style={{ flex: 1 }}
         />

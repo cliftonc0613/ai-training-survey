@@ -19,7 +19,7 @@ export default function MultipleChoice({
   value,
   onChange,
   variant = 'list',
-  required = false,
+  required: _required = false,
   error,
 }: MultipleChoiceProps) {
   if (variant === 'cards') {

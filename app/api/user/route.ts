@@ -39,17 +39,27 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!data) {
+      return NextResponse.json(
+        { error: 'Failed to create user' },
+        { status: 500 }
+      );
+    }
+
+    // Type assertion after null check
+    const userData = data as any;
+
     // Return user data with resume token
     return NextResponse.json(
       {
         user: {
-          id: data.id,
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          resumeToken: data.resume_token,
-          createdAt: data.created_at,
-          updatedAt: data.updated_at,
+          id: userData.id,
+          name: userData.name,
+          email: userData.email,
+          phone: userData.phone,
+          resumeToken: userData.resume_token,
+          createdAt: userData.created_at,
+          updatedAt: userData.updated_at,
         },
       },
       { status: 201 }
@@ -78,24 +88,34 @@ export async function GET(request: NextRequest) {
     // Get user by resume token
     const { data, error } = await db.getUserByResumeToken(resumeToken);
 
-    if (error || !data) {
+    if (error) {
       return NextResponse.json(
         { error: 'User not found' },
         { status: 404 }
       );
     }
 
+    if (!data) {
+      return NextResponse.json(
+        { error: 'User not found' },
+        { status: 404 }
+      );
+    }
+
+    // Type assertion after null check
+    const userData = data as any;
+
     // Return user data
     return NextResponse.json(
       {
         user: {
-          id: data.id,
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          resumeToken: data.resume_token,
-          createdAt: data.created_at,
-          updatedAt: data.updated_at,
+          id: userData.id,
+          name: userData.name,
+          email: userData.email,
+          phone: userData.phone,
+          resumeToken: userData.resume_token,
+          createdAt: userData.created_at,
+          updatedAt: userData.updated_at,
         },
       },
       { status: 200 }

@@ -22,7 +22,7 @@ export default function RatingScale({
   variant = 'stars',
   min = 1,
   max = 5,
-  required = false,
+  required: _required = false,
   error,
   labels,
 }: RatingScaleProps) {

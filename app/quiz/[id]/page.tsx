@@ -12,6 +12,9 @@ import {
   Progress,
   Radio,
   Textarea,
+  TextInput,
+  NumberInput,
+  Checkbox,
   Rating,
   Loader,
   Alert,
@@ -142,7 +145,22 @@ export default function QuizPage() {
           </Radio.Group>
         );
 
+      case 'checkbox':
+        return (
+          <Checkbox.Group
+            value={(currentAnswer as string[]) || []}
+            onChange={(value) => handleAnswer(question.id, value)}
+          >
+            <Stack gap="sm">
+              {question.options?.map((option) => (
+                <Checkbox key={option} value={option} label={option} size="md" />
+              ))}
+            </Stack>
+          </Checkbox.Group>
+        );
+
       case 'text':
+      case 'text-long':
         return (
           <Textarea
             placeholder={question.placeholder || 'Enter your answer...'}
@@ -153,6 +171,28 @@ export default function QuizPage() {
           />
         );
 
+      case 'text-short':
+        return (
+          <TextInput
+            placeholder={question.placeholder || 'Enter your answer...'}
+            value={(currentAnswer as string) || ''}
+            onChange={(e) => handleAnswer(question.id, e.target.value)}
+            size="md"
+          />
+        );
+
+      case 'number':
+        return (
+          <NumberInput
+            placeholder={question.placeholder || 'Enter a number...'}
+            value={(currentAnswer as number) || undefined}
+            onChange={(value) => handleAnswer(question.id, value)}
+            min={(question as any).min}
+            max={(question as any).max}
+            size="md"
+          />
+        );
+
       case 'rating':
         return (
           <Stack gap="md" align="center">
@@ -160,11 +200,25 @@ export default function QuizPage() {
               value={(currentAnswer as number) || 0}
               onChange={(value) => handleAnswer(question.id, value)}
               size="xl"
-              count={question.maxRating || 5}
+              count={(question as any).max || question.maxRating || 5}
             />
-            <Text size="sm" c="dimmed">
-              {currentAnswer ? `${currentAnswer} / ${question.maxRating || 5}` : 'Select a rating'}
-            </Text>
+            <Group gap="xs">
+              {(question as any).minLabel && (
+                <Text size="xs" c="dimmed">
+                  {(question as any).minLabel}
+                </Text>
+              )}
+              <Text size="sm" c="dimmed">
+                {currentAnswer
+                  ? `${currentAnswer} / ${(question as any).max || question.maxRating || 5}`
+                  : 'Select a rating'}
+              </Text>
+              {(question as any).maxLabel && (
+                <Text size="xs" c="dimmed">
+                  {(question as any).maxLabel}
+                </Text>
+              )}
+            </Group>
           </Stack>
         );
 
@@ -182,7 +236,7 @@ export default function QuizPage() {
         );
 
       default:
-        return <Text c="dimmed">Unsupported question type</Text>;
+        return <Text c="dimmed">Unsupported question type: {question.type}</Text>;
     }
   };
 

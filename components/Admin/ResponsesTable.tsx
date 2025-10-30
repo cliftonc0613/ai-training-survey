@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Table, Paper, Badge, ActionIcon, Group, Text, ScrollArea, Pagination, Select } from '@mantine/core';
 import { IconEye, IconDownload, IconRefresh } from '@tabler/icons-react';
 import ExportButton from './ExportButton';
+import ResponseDetailModal from './ResponseDetailModal';
 
 interface QuizResponse {
   id: string;
@@ -26,6 +27,8 @@ interface ResponsesTableProps {
 export default function ResponsesTable({ responses, onRefresh }: ResponsesTableProps) {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState('10');
+  const [selectedResponseId, setSelectedResponseId] = useState<string | null>(null);
+  const [modalOpened, setModalOpened] = useState(false);
 
   const pageSizeNum = parseInt(pageSize);
   const totalPages = Math.ceil(responses.length / pageSizeNum);
@@ -75,6 +78,16 @@ export default function ResponsesTable({ responses, onRefresh }: ResponsesTableP
     });
   };
 
+  const handleViewResponse = (responseId: string) => {
+    setSelectedResponseId(responseId);
+    setModalOpened(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpened(false);
+    setSelectedResponseId(null);
+  };
+
   const rows = paginatedResponses.map((response) => (
     <Table.Tr key={response.id}>
       <Table.Td>{response.user?.name || 'N/A'}</Table.Td>
@@ -87,10 +100,16 @@ export default function ResponsesTable({ responses, onRefresh }: ResponsesTableP
       </Table.Td>
       <Table.Td>
         <Group gap="xs">
-          <ActionIcon variant="light" color="blue" size="sm">
+          <ActionIcon
+            variant="light"
+            color="blue"
+            size="sm"
+            onClick={() => handleViewResponse(response.id)}
+            title="View Details"
+          >
             <IconEye size={16} />
           </ActionIcon>
-          <ActionIcon variant="light" color="green" size="sm">
+          <ActionIcon variant="light" color="green" size="sm" title="Download">
             <IconDownload size={16} />
           </ActionIcon>
         </Group>
@@ -106,6 +125,7 @@ export default function ResponsesTable({ responses, onRefresh }: ResponsesTableP
   };
 
   return (
+    <>
     <Paper
       shadow="lg"
       radius="lg"
@@ -203,5 +223,12 @@ export default function ResponsesTable({ responses, onRefresh }: ResponsesTableP
         </Group>
       )}
     </Paper>
+
+    <ResponseDetailModal
+      opened={modalOpened}
+      onClose={handleCloseModal}
+      responseId={selectedResponseId}
+    />
+  </>
   );
 }

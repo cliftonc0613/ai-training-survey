@@ -46,20 +46,30 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!data) {
+      return NextResponse.json(
+        { error: 'Failed to create quiz response' },
+        { status: 500 }
+      );
+    }
+
+    // Type assertion after null check
+    const quizResponse = data as any;
+
     // Return success response
     return NextResponse.json(
       {
         quizResponse: {
-          id: data.id,
-          quizId: data.quiz_id,
-          userId: data.user_id,
-          responses: data.responses,
-          startedAt: data.started_at,
-          completedAt: data.completed_at,
-          progress: data.progress,
-          synced: data.synced,
-          createdAt: data.created_at,
-          updatedAt: data.updated_at,
+          id: quizResponse.id,
+          quizId: quizResponse.quiz_id,
+          userId: quizResponse.user_id,
+          responses: quizResponse.responses,
+          startedAt: quizResponse.started_at,
+          completedAt: quizResponse.completed_at,
+          progress: quizResponse.progress,
+          synced: quizResponse.synced,
+          createdAt: quizResponse.created_at,
+          updatedAt: quizResponse.updated_at,
         },
         message: isComplete ? 'Quiz submitted successfully' : 'Progress saved',
       },
@@ -92,8 +102,15 @@ export async function GET(request: NextRequest) {
         );
       }
 
+      if (!data) {
+        return NextResponse.json(
+          { error: 'No quiz responses found' },
+          { status: 404 }
+        );
+      }
+
       // Format responses
-      const quizResponses = data.map((response) => ({
+      const quizResponses = data.map((response: any) => ({
         id: response.id,
         quizId: response.quiz_id,
         userId: response.user_id,
@@ -196,20 +213,30 @@ export async function PUT(request: NextRequest) {
       );
     }
 
+    if (!data) {
+      return NextResponse.json(
+        { error: 'Failed to update quiz response' },
+        { status: 500 }
+      );
+    }
+
+    // Type assertion after null check
+    const updatedResponse = data as any;
+
     // Return updated response
     return NextResponse.json(
       {
         quizResponse: {
-          id: data.id,
-          quizId: data.quiz_id,
-          userId: data.user_id,
-          responses: data.responses,
-          startedAt: data.started_at,
-          completedAt: data.completed_at,
-          progress: data.progress,
-          synced: data.synced,
-          createdAt: data.created_at,
-          updatedAt: data.updated_at,
+          id: updatedResponse.id,
+          quizId: updatedResponse.quiz_id,
+          userId: updatedResponse.user_id,
+          responses: updatedResponse.responses,
+          startedAt: updatedResponse.started_at,
+          completedAt: updatedResponse.completed_at,
+          progress: updatedResponse.progress,
+          synced: updatedResponse.synced,
+          createdAt: updatedResponse.created_at,
+          updatedAt: updatedResponse.updated_at,
         },
         message: isComplete ? 'Quiz updated and completed' : 'Progress updated',
       },

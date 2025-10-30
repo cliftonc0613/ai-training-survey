@@ -16,7 +16,7 @@ export default function Checkbox({
   options,
   value,
   onChange,
-  required = false,
+  required: _required = false,
   error,
   minSelection,
   maxSelection,

@@ -14,6 +14,19 @@ export async function GET() {
       );
     }
 
+    if (!responses || responses.length === 0) {
+      return NextResponse.json(
+        {
+          totalResponses: 0,
+          totalUsers: 0,
+          completedResponses: 0,
+          inProgressResponses: 0,
+          completionRate: 0,
+        },
+        { status: 200 }
+      );
+    }
+
     // Fetch all users
     const { data: users, error: usersError } = await db.getAllUsers();
 
@@ -22,12 +35,29 @@ export async function GET() {
       return NextResponse.json({ error: 'Failed to fetch users' }, { status: 500 });
     }
 
+    if (!users || users.length === 0) {
+      return NextResponse.json(
+        {
+          totalResponses: responses.length,
+          totalUsers: 0,
+          completedResponses: responses.filter((r: any) => r.progress === 100).length,
+          inProgressResponses: responses.filter((r: any) => r.progress > 0 && r.progress < 100)
+            .length,
+          completionRate:
+            responses.length > 0
+              ? (responses.filter((r: any) => r.progress === 100).length / responses.length) * 100
+              : 0,
+        },
+        { status: 200 }
+      );
+    }
+
     // Calculate stats
     const totalResponses = responses.length;
     const totalUsers = users.length;
-    const completedResponses = responses.filter((r) => r.progress === 100).length;
+    const completedResponses = responses.filter((r: any) => r.progress === 100).length;
     const inProgressResponses = responses.filter(
-      (r) => r.progress > 0 && r.progress < 100
+      (r: any) => r.progress > 0 && r.progress < 100
     ).length;
     const completionRate =
       totalResponses > 0 ? (completedResponses / totalResponses) * 100 : 0;
