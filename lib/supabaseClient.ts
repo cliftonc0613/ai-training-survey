@@ -37,6 +37,10 @@ export const db = {
     return (supabase.from('users') as any).update(updates).eq('id', id).select().single();
   },
 
+  async getUser(id: string) {
+    return supabase.from('users').select('*').eq('id', id).single();
+  },
+
   // Quizzes
   async getQuiz(id: string) {
     return supabase.from('quizzes').select('*').eq('id', id).single();

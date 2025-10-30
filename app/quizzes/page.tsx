@@ -169,10 +169,10 @@ export default function QuizzesPage() {
           <Paper p="md" radius="md" bg="gray.0" withBorder>
             <Group justify="space-between">
               <div>
-                <Text size="sm" fw={600}>
+                <Text size="sm" fw={600} c="brand.7">
                   Logged in as: {user.name}
                 </Text>
-                <Text size="xs" c="dimmed">
+                <Text size="xs" c="brand.7">
                   Resume Token: {user.resumeToken}
                 </Text>
               </div>

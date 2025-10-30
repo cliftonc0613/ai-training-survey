@@ -16,8 +16,14 @@ export async function GET() {
 
     if (!responses || responses.length === 0) {
       return NextResponse.json(
-        { error: 'No responses found' },
-        { status: 404 }
+        {
+          responsesByQuiz: [],
+          responsesByDay: [],
+          completionRate: 0,
+          totalResponses: 0,
+          completedResponses: 0,
+        },
+        { status: 200 }
       );
     }
 

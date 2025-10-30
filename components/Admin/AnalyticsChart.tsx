@@ -35,36 +35,42 @@ export default function AnalyticsChart({ data, title }: AnalyticsChartProps) {
       <Title order={3} mb="lg">
         {title}
       </Title>
-      <ResponsiveContainer width="100%" height={400}>
-        <LineChart data={formattedData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis
-            dataKey="date"
-            style={{ fontSize: '12px' }}
-          />
-          <YAxis
-            style={{ fontSize: '12px' }}
-            allowDecimals={false}
-          />
-          <Tooltip
-            contentStyle={{
-              backgroundColor: '#fff',
-              border: '1px solid #e9ecef',
-              borderRadius: '8px',
-            }}
-          />
-          <Legend />
-          <Line
-            type="monotone"
-            dataKey="responses"
-            stroke="#339af0"
-            strokeWidth={2}
-            dot={{ fill: '#339af0', r: 4 }}
-            activeDot={{ r: 6 }}
-            name="Survey Responses"
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      {formattedData.length === 0 ? (
+        <div style={{ height: 400, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <p style={{ color: '#868e96', fontSize: '14px' }}>No response data available yet</p>
+        </div>
+      ) : (
+        <ResponsiveContainer width="100%" height={400}>
+          <LineChart data={formattedData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis
+              dataKey="date"
+              style={{ fontSize: '12px' }}
+            />
+            <YAxis
+              style={{ fontSize: '12px' }}
+              allowDecimals={false}
+            />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: '#fff',
+                border: '1px solid #e9ecef',
+                borderRadius: '8px',
+              }}
+            />
+            <Legend />
+            <Line
+              type="monotone"
+              dataKey="responses"
+              stroke="#339af0"
+              strokeWidth={2}
+              dot={{ fill: '#339af0', r: 4 }}
+              activeDot={{ r: 6 }}
+              name="Survey Responses"
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      )}
     </Paper>
   );
 }
