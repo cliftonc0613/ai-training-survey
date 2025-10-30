@@ -52,6 +52,13 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    if (!data) {
+      return NextResponse.json(
+        { error: 'No responses found' },
+        { status: 404 }
+      );
+    }
+
     // Format responses
     const responses = data.map((response: any) => ({
       id: response.id,

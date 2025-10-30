@@ -1,5 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
-import type { Quiz, QuestionResponse } from '../types';
+import { useCallback, useMemo } from 'react';
 import { useQuiz } from '../context/QuizContext';
 
 interface QuizProgressMetrics {
@@ -25,7 +24,6 @@ interface UseQuizProgressReturn extends QuizProgressMetrics {
 
 export function useQuizProgress(): UseQuizProgressReturn {
   const { session } = useQuiz();
-  const [startTime] = useState<Date>(new Date());
 
   const totalQuestions = useMemo(() => {
     return session.currentQuiz?.questions.length || 0;

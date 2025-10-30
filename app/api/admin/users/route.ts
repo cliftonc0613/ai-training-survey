@@ -38,8 +38,15 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    if (!data) {
+      return NextResponse.json(
+        { error: 'No users found' },
+        { status: 404 }
+      );
+    }
+
     // Format users
-    const users = data.map((user) => ({
+    const users = data.map((user: any) => ({
       id: user.id,
       name: user.name,
       email: user.email,

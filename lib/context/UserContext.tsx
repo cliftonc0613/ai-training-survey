@@ -110,14 +110,15 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
       const { data, error } = await db.getUserByResumeToken(token);
 
       if (data && !error) {
+        const userData = data as any;
         const resumedUser: User = {
-          id: data.id,
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          resumeToken: data.resume_token,
-          createdAt: data.created_at,
-          updatedAt: data.updated_at,
+          id: userData.id,
+          name: userData.name,
+          email: userData.email,
+          phone: userData.phone,
+          resumeToken: userData.resume_token,
+          createdAt: userData.created_at,
+          updatedAt: userData.updated_at,
         };
 
         setUser(resumedUser);

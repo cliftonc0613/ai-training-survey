@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Alert, Transition } from '@mantine/core';
-import { IconWifi, IconWifiOff, IconCloudUpload } from '@tabler/icons-react';
+import { IconWifiOff, IconCloudUpload } from '@tabler/icons-react';
 
 interface OfflineIndicatorProps {
   queueCount?: number;

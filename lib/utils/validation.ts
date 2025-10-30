@@ -24,8 +24,8 @@ export function validateName(name: string): ValidationResult {
     return { isValid: false, error: 'Name must not exceed 50 characters' };
   }
 
-  // Allow letters (including Unicode), spaces, hyphens, and apostrophes
-  const nameRegex = /^[\p{L}\s'-]+$/u;
+  // Allow letters (a-zA-Z), spaces, hyphens, and apostrophes
+  const nameRegex = /^[a-zA-Z\s'-]+$/;
   if (!nameRegex.test(trimmedName)) {
     return {
       isValid: false,

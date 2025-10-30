@@ -1,6 +1,6 @@
 'use client';
 
-import { TextInput, Text, Stack } from '@mantine/core';
+import { TextInput, Text, Stack, Group } from '@mantine/core';
 
 interface TextShortProps {
   value: string;

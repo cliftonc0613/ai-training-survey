@@ -1,4 +1,4 @@
-import type { Quiz, Question } from '../types';
+import type { Quiz } from '../types';
 
 interface ValidationResult {
   isValid: boolean;
