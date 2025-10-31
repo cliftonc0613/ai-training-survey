@@ -39,6 +39,7 @@ interface ResponseDetail {
   user?: {
     name: string;
     email: string;
+    resumeToken?: string;
   };
   quiz?: {
     title: string;
@@ -154,6 +155,11 @@ export default function ResponseDetailModal({
               <Text size="sm" c="dimmed">
                 {responseDetail.user?.email || 'N/A'}
               </Text>
+              {responseDetail.user?.resumeToken && (
+                <Text size="sm" c="dimmed">
+                  Resume Token: {responseDetail.user.resumeToken}
+                </Text>
+              )}
             </Stack>
           </Paper>
 
