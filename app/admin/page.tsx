@@ -10,6 +10,8 @@ import {
   Group,
   Loader,
   RingProgress,
+  useMantineTheme,
+  useMantineColorScheme,
 } from '@mantine/core';
 import {
   IconFileText,
@@ -27,6 +29,8 @@ interface Stats {
 }
 
 export default function AdminDashboard() {
+  const theme = useMantineTheme();
+  const { colorScheme } = useMantineColorScheme();
   const [stats, setStats] = useState<Stats | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -56,6 +60,28 @@ export default function AdminDashboard() {
       </Stack>
     );
   }
+
+  const getCardColors = (color: string) => {
+    const colors: Record<string, { start: string; end: string }> = {
+      blue: {
+        start: colorScheme === 'dark' ? theme.colors.blue[6] : theme.colors.blue[5],
+        end: colorScheme === 'dark' ? theme.colors.blue[8] : theme.colors.blue[7],
+      },
+      green: {
+        start: colorScheme === 'dark' ? theme.colors.green[6] : theme.colors.green[5],
+        end: colorScheme === 'dark' ? theme.colors.green[8] : theme.colors.green[7],
+      },
+      teal: {
+        start: colorScheme === 'dark' ? theme.colors.teal[6] : theme.colors.teal[5],
+        end: colorScheme === 'dark' ? theme.colors.teal[8] : theme.colors.teal[7],
+      },
+      orange: {
+        start: colorScheme === 'dark' ? theme.colors.orange[6] : theme.colors.orange[5],
+        end: colorScheme === 'dark' ? theme.colors.orange[8] : theme.colors.orange[7],
+      },
+    };
+    return colors[color];
+  };
 
   const statCards = [
     {
@@ -102,18 +128,28 @@ export default function AdminDashboard() {
               radius="lg"
               withBorder
               style={{
-                background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
-                borderColor: '#e9ecef',
+                background:
+                  colorScheme === 'dark'
+                    ? `linear-gradient(135deg, ${theme.colors.dark[6]} 0%, ${theme.colors.dark[7]} 100%)`
+                    : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+                borderColor:
+                  colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3],
                 transition: 'all 0.3s ease',
                 cursor: 'pointer',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.boxShadow =
+                  colorScheme === 'dark'
+                    ? '0 12px 24px rgba(0, 0, 0, 0.4)'
+                    : '0 12px 24px rgba(0, 0, 0, 0.1)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
+                e.currentTarget.style.boxShadow =
+                  colorScheme === 'dark'
+                    ? '0 1px 3px rgba(0, 0, 0, 0.3)'
+                    : '0 1px 3px rgba(0, 0, 0, 0.05)';
               }}
             >
               <Group justify="space-between" align="flex-start">
@@ -129,8 +165,11 @@ export default function AdminDashboard() {
                   style={{
                     padding: '12px',
                     borderRadius: '12px',
-                    background: `linear-gradient(135deg, ${card.color === 'blue' ? '#339af0' : card.color === 'green' ? '#51cf66' : card.color === 'teal' ? '#20c997' : '#ff922b'} 0%, ${card.color === 'blue' ? '#228be6' : card.color === 'green' ? '#40c057' : card.color === 'teal' ? '#12b886' : '#fd7e14'} 100%)`,
-                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                    background: `linear-gradient(135deg, ${getCardColors(card.color).start} 0%, ${getCardColors(card.color).end} 100%)`,
+                    boxShadow:
+                      colorScheme === 'dark'
+                        ? '0 4px 12px rgba(0, 0, 0, 0.4)'
+                        : '0 4px 12px rgba(0, 0, 0, 0.15)',
                   }}
                 >
                   <card.icon size={32} color="white" stroke={2} />
@@ -147,8 +186,12 @@ export default function AdminDashboard() {
         radius="lg"
         withBorder
         style={{
-          background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
-          borderColor: '#e9ecef',
+          background:
+            colorScheme === 'dark'
+              ? `linear-gradient(135deg, ${theme.colors.dark[6]} 0%, ${theme.colors.dark[7]} 100%)`
+              : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+          borderColor:
+            colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3],
         }}
       >
         <Group align="center" gap="xl">

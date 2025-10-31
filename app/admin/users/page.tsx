@@ -14,6 +14,8 @@ import {
   Pagination,
   Select,
   ActionIcon,
+  useMantineTheme,
+  useMantineColorScheme,
 } from '@mantine/core';
 import { IconRefresh, IconMail, IconPhone } from '@tabler/icons-react';
 
@@ -29,6 +31,8 @@ interface User {
 }
 
 export default function UsersPage() {
+  const theme = useMantineTheme();
+  const { colorScheme } = useMantineColorScheme();
   const [users, setUsers] = useState<User[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -148,8 +152,12 @@ export default function UsersPage() {
         radius="lg"
         withBorder
         style={{
-          background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
-          borderColor: '#e9ecef',
+          background:
+            colorScheme === 'dark'
+              ? `linear-gradient(135deg, ${theme.colors.dark[6]} 0%, ${theme.colors.dark[7]} 100%)`
+              : 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
+          borderColor:
+            colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3],
           overflow: 'hidden',
         }}
       >
@@ -157,8 +165,14 @@ export default function UsersPage() {
           justify="space-between"
           p="xl"
           style={{
-            borderBottom: '2px solid #dee2e6',
-            background: 'linear-gradient(90deg, #f8f9fa 0%, #ffffff 100%)',
+            borderBottom:
+              colorScheme === 'dark'
+                ? `2px solid ${theme.colors.dark[5]}`
+                : '2px solid #dee2e6',
+            background:
+              colorScheme === 'dark'
+                ? `linear-gradient(90deg, ${theme.colors.dark[7]} 0%, ${theme.colors.dark[6]} 100%)`
+                : 'linear-gradient(90deg, #f8f9fa 0%, #ffffff 100%)',
           }}
         >
           <Group gap="md">
@@ -169,7 +183,10 @@ export default function UsersPage() {
               style={{
                 padding: '4px 12px',
                 borderRadius: '20px',
-                background: 'linear-gradient(135deg, #339af0 0%, #228be6 100%)',
+                background:
+                  colorScheme === 'dark'
+                    ? `linear-gradient(135deg, ${theme.colors.blue[7]} 0%, ${theme.colors.blue[9]} 100%)`
+                    : 'linear-gradient(135deg, #339af0 0%, #228be6 100%)',
                 color: 'white',
                 fontSize: '14px',
                 fontWeight: 600,
@@ -227,7 +244,16 @@ export default function UsersPage() {
         </ScrollArea>
 
         {totalPages > 1 && (
-          <Group justify="center" p="md" style={{ borderTop: '1px solid #e9ecef' }}>
+          <Group
+            justify="center"
+            p="md"
+            style={{
+              borderTop:
+                colorScheme === 'dark'
+                  ? `1px solid ${theme.colors.dark[5]}`
+                  : '1px solid #e9ecef',
+            }}
+          >
             <Pagination value={page} onChange={setPage} total={totalPages} size="sm" />
             <Text size="sm" c="dimmed">
               Showing {startIndex + 1}-{Math.min(endIndex, users.length)} of {users.length}

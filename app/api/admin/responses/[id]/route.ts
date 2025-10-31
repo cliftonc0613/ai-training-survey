@@ -47,6 +47,7 @@ export async function GET(
         ? {
             name: user.name,
             email: user.email,
+            resumeToken: user.resume_token,
           }
         : undefined,
       quiz: quiz
