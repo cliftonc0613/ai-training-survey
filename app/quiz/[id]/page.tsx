@@ -37,7 +37,7 @@ export default function QuizPage() {
   const quizId = params.id as string;
 
   const { user, isLoading: userLoading } = useUser();
-  const { session, startQuiz, answerQuestion, nextQuestion, previousQuestion, submitQuiz } =
+  const { session, startQuiz, answerQuestion, nextQuestion, previousQuestion, goToQuestion, submitQuiz } =
     useQuiz();
   const {
     totalQuestions,
@@ -67,12 +67,56 @@ export default function QuizPage() {
 
   const fetchQuiz = async (id: string) => {
     try {
-      const response = await fetch(`/api/quiz/${id}`);
-      if (!response.ok) throw new Error('Failed to fetch quiz');
+      // Fetch quiz definition
+      const quizResponse = await fetch(`/api/quiz/${id}`);
+      if (!quizResponse.ok) throw new Error('Failed to fetch quiz');
 
-      const data = await response.json();
-      setQuiz(data.quiz);
-      startQuiz(data.quiz);
+      const quizData = await quizResponse.json();
+      setQuiz(quizData.quiz);
+
+      // Check if user has saved progress for this quiz
+      if (user) {
+        try {
+          const progressResponse = await fetch(`/api/quiz?userId=${user.id}`);
+          if (progressResponse.ok) {
+            const progressData = await progressResponse.json();
+
+            // Find in-progress response for this specific quiz
+            const savedResponse = progressData.quizResponses?.find(
+              (qr: any) => qr.quizId === id && !qr.completedAt
+            );
+
+            if (savedResponse && savedResponse.responses?.length > 0) {
+              // Load saved progress
+              console.log('Loading saved progress:', savedResponse);
+              startQuiz(quizData.quiz);
+
+              // Use setTimeout to ensure state updates complete before navigating
+              setTimeout(() => {
+                // Restore responses
+                savedResponse.responses.forEach((response: any) => {
+                  answerQuestion(response.questionId, response.answer);
+                });
+
+                // Calculate which question to show based on progress
+                setTimeout(() => {
+                  const answeredCount = savedResponse.responses.length;
+                  if (answeredCount < quizData.quiz.questions.length) {
+                    goToQuestion(answeredCount); // Go to next unanswered question
+                  }
+                }, 100);
+              }, 100);
+
+              return;
+            }
+          }
+        } catch (progressErr) {
+          console.warn('Could not load saved progress, starting fresh:', progressErr);
+        }
+      }
+
+      // No saved progress found, start fresh
+      startQuiz(quizData.quiz);
     } catch (err) {
       console.error('Error fetching quiz:', err);
       setError('Failed to load quiz. Please try again.');
