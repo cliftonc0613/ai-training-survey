@@ -57,11 +57,14 @@ export default function ResumePage() {
       // Resume user session
       await resumeSession(resumeToken.trim());
 
-      // Check if there's an in-progress quiz
-      if (data.inProgressQuiz) {
-        // Redirect to the quiz page
-        router.push(`/quiz/${data.inProgressQuiz.quizId}`);
-      } else if (data.completedQuizzes && data.completedQuizzes.length > 0) {
+      // Check if there's an in-progress quiz (not completed)
+      // savedProgress is an array of quiz responses
+      const inProgressQuiz = data.savedProgress?.find((qr: any) => !qr.completedAt);
+
+      if (inProgressQuiz) {
+        // Redirect to the in-progress quiz page
+        router.push(`/quiz/${inProgressQuiz.quizId}`);
+      } else if (data.savedProgress && data.savedProgress.length > 0) {
         // All quizzes completed, redirect to thank you page
         router.push('/thank-you');
       } else {

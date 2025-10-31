@@ -3,7 +3,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import type { Quiz, QuizSession, QuestionResponse } from '../types';
 import { localStorage as storage, STORAGE_KEYS, indexedDB, STORE_NAMES } from '../utils/storage';
-import { db } from '../supabaseClient';
 import { useUser } from './UserContext';
 
 interface QuizContextType {
@@ -34,6 +33,8 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
     isComplete: false,
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [quizResponseId, setQuizResponseId] = useState<string | null>(null);
+  const [lastSyncedProgress, setLastSyncedProgress] = useState<number>(0);
 
   // Update session user when user context changes
   useEffect(() => {
@@ -52,7 +53,7 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
     }
   }, [session.responses]);
 
-  const startQuiz = useCallback((quiz: Quiz) => {
+  const startQuiz = useCallback(async (quiz: Quiz) => {
     setSession({
       user,
       currentQuiz: quiz,
@@ -61,6 +62,31 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
       progress: 0,
       isComplete: false,
     });
+
+    // Create initial quiz response record in database
+    if (user && quiz) {
+      try {
+        const response = await fetch('/api/quiz', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            quizId: quiz.id,
+            userId: user.id,
+            responses: [],
+            progress: 0,
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setQuizResponseId(data.quizResponse.id);
+          setLastSyncedProgress(0);
+          console.log('Initial quiz response created:', data.quizResponse.id);
+        }
+      } catch (error) {
+        console.warn('Failed to create initial quiz response, will retry on next save:', error);
+      }
+    }
   }, [user]);
 
   const answerQuestion = useCallback(
@@ -120,40 +146,74 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
     setIsLoading(true);
 
     try {
+      const now = new Date().toISOString();
+
+      if (quizResponseId) {
+        // Update existing quiz response to mark as complete
+        const response = await fetch('/api/quiz', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: quizResponseId,
+            responses: session.responses,
+            progress: 100,
+            completedAt: now,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to update quiz response');
+        }
+
+        console.log('Quiz submitted successfully:', quizResponseId);
+      } else {
+        // Fallback: create new quiz response if we somehow don't have an ID
+        const response = await fetch('/api/quiz', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            quizId: session.currentQuiz.id,
+            userId: user.id,
+            responses: session.responses,
+            progress: 100,
+            completedAt: now,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to create quiz response');
+        }
+
+        const data = await response.json();
+        console.log('Quiz submitted successfully:', data.quizResponse.id);
+      }
+
+      // Save to IndexedDB as backup
       const quizResponse = {
-        id: crypto.randomUUID(),
+        id: quizResponseId || crypto.randomUUID(),
         quiz_id: session.currentQuiz.id,
         user_id: user.id,
         responses: session.responses,
-        started_at: new Date().toISOString(),
-        completed_at: new Date().toISOString(),
+        started_at: now,
+        completed_at: now,
         progress: 100,
-        synced: false,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
+        synced: true,
+        created_at: now,
+        updated_at: now,
       };
-
-      // Save to IndexedDB first
       await indexedDB.set(STORE_NAMES.QUIZ_RESPONSES, quizResponse);
-
-      // Try to sync to Supabase
-      try {
-        await db.createQuizResponse(quizResponse);
-        quizResponse.synced = true;
-        await indexedDB.set(STORE_NAMES.QUIZ_RESPONSES, quizResponse);
-      } catch (error) {
-        console.warn('Failed to sync quiz response to Supabase, will retry later:', error);
-      }
 
       setSession((prev) => ({ ...prev, isComplete: true }));
       storage.remove(STORAGE_KEYS.QUIZ_SESSION);
+      setQuizResponseId(null);
+      setLastSyncedProgress(0);
     } catch (error) {
       console.error('Error submitting quiz:', error);
       throw error;
     } finally {
       setIsLoading(false);
     }
-  }, [session, user]);
+  }, [session, user, quizResponseId]);
 
   const resetQuiz = useCallback(() => {
     setSession({
@@ -165,15 +225,67 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
       isComplete: false,
     });
     storage.remove(STORAGE_KEYS.QUIZ_SESSION);
+    setQuizResponseId(null);
+    setLastSyncedProgress(0);
   }, [user]);
 
   const saveProgress = useCallback(async () => {
     try {
+      // Always save to localStorage first
       storage.set(STORAGE_KEYS.QUIZ_SESSION, session);
+
+      // Sync to database if we have a user, quiz, and responses
+      if (user && session.currentQuiz && session.responses.length > 0) {
+        // Only sync if progress has changed significantly (every 10%) or if we don't have a response ID yet
+        const shouldSync = !quizResponseId || (session.progress - lastSyncedProgress >= 10);
+
+        if (shouldSync) {
+          try {
+            if (quizResponseId) {
+              // Update existing quiz response
+              const response = await fetch('/api/quiz', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  id: quizResponseId,
+                  responses: session.responses,
+                  progress: session.progress,
+                }),
+              });
+
+              if (response.ok) {
+                setLastSyncedProgress(session.progress);
+                console.log('Progress synced to database:', session.progress + '%');
+              }
+            } else {
+              // Create new quiz response if we don't have an ID yet
+              const response = await fetch('/api/quiz', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  quizId: session.currentQuiz.id,
+                  userId: user.id,
+                  responses: session.responses,
+                  progress: session.progress,
+                }),
+              });
+
+              if (response.ok) {
+                const data = await response.json();
+                setQuizResponseId(data.quizResponse.id);
+                setLastSyncedProgress(session.progress);
+                console.log('Quiz response created and synced:', data.quizResponse.id);
+              }
+            }
+          } catch (error) {
+            console.warn('Failed to sync progress to database, will retry later:', error);
+          }
+        }
+      }
     } catch (error) {
       console.error('Error saving quiz progress:', error);
     }
-  }, [session]);
+  }, [session, user, quizResponseId, lastSyncedProgress]);
 
   const loadProgress = useCallback(async () => {
     try {
