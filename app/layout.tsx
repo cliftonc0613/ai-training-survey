@@ -7,6 +7,7 @@ import { Notifications } from '@mantine/notifications';
 import { theme } from '../theme';
 import { UserProvider } from '@/lib/context/UserContext';
 import { QuizProvider } from '@/lib/context/QuizContext';
+import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
 
 export const metadata = {
   title: 'AI Training Course Survey',
@@ -37,8 +38,9 @@ export default function RootLayout({ children }: { children: any }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
       <body suppressHydrationWarning>
-        <MantineProvider theme={theme}>
+        <MantineProvider theme={theme} defaultColorScheme="auto">
           <Notifications position="top-right" zIndex={1000} />
+          <ColorSchemeToggle />
           <UserProvider>
             <QuizProvider>{children}</QuizProvider>
           </UserProvider>
