@@ -8,17 +8,9 @@ import { theme } from '../theme';
 import { UserProvider } from '@/lib/context/UserContext';
 import { QuizProvider } from '@/lib/context/QuizContext';
 import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
+import { defaultMetadata } from '@/lib/metadata/constants';
 
-export const metadata = {
-  title: 'AI Training Course Survey',
-  description: 'Progressive web app for AI training course surveys with offline support',
-  manifest: '/manifest.json',
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'default',
-    title: 'AI Survey',
-  },
-};
+export const metadata = defaultMetadata;
 
 export const viewport = {
   themeColor: '#46597e',
@@ -33,9 +25,6 @@ export default function RootLayout({ children }: { children: any }) {
     <html lang="en" {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
       <body suppressHydrationWarning>
         <MantineProvider theme={theme} defaultColorScheme="auto">
