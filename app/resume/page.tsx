@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Container,
   Stack,
@@ -14,6 +14,7 @@ import {
   Group,
   List,
   ThemeIcon,
+  useMantineColorScheme,
 } from '@mantine/core';
 import {
   IconAlertCircle,
@@ -28,9 +29,15 @@ import { useUser } from '@/lib/context/UserContext';
 export default function ResumePage() {
   const router = useRouter();
   const { resumeSession } = useUser();
+  const { colorScheme } = useMantineColorScheme();
   const [resumeToken, setResumeToken] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -138,15 +145,33 @@ export default function ResumePage() {
         <Paper p="lg" radius="md" bg="blue.0" withBorder>
           <Stack gap="sm">
             <Group gap="xs">
-              <ThemeIcon size="sm" radius="xl" variant="light">
+              <ThemeIcon
+                size="sm"
+                radius="xl"
+                variant="light"
+                color={mounted && colorScheme === 'dark' ? 'brand.9' : undefined}
+              >
                 <IconCheck size={12} />
               </ThemeIcon>
-              <Text size="sm" fw={600}>
+              <Text
+                size="sm"
+                fw={600}
+                c={mounted && colorScheme === 'dark' ? '#3a5890' : undefined}
+              >
                 Where to find your resume token:
               </Text>
             </Group>
 
-            <List size="sm" spacing="xs" withPadding>
+            <List
+              size="sm"
+              spacing="xs"
+              withPadding
+              styles={{
+                item: {
+                  color: mounted && colorScheme === 'dark' ? '#3a5890' : undefined,
+                },
+              }}
+            >
               <List.Item>Check your email for your registration confirmation</List.Item>
               <List.Item>Look for the token saved in your browser's local storage</List.Item>
               <List.Item>

@@ -1,6 +1,18 @@
 'use client';
 
-import { Modal, Stack, Text, Paper, Group, Badge, Divider, Loader, ScrollArea } from '@mantine/core';
+import {
+  Modal,
+  Stack,
+  Text,
+  Paper,
+  Group,
+  Badge,
+  Divider,
+  Loader,
+  ScrollArea,
+  useMantineTheme,
+  useMantineColorScheme,
+} from '@mantine/core';
 import { useEffect, useState } from 'react';
 
 interface Question {
@@ -46,6 +58,8 @@ export default function ResponseDetailModal({
   onClose,
   responseId,
 }: ResponseDetailModalProps) {
+  const theme = useMantineTheme();
+  const { colorScheme } = useMantineColorScheme();
   const [responseDetail, setResponseDetail] = useState<ResponseDetail | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -200,7 +214,19 @@ export default function ResponseDetailModal({
                           )}
                         </Group>
                         <Text fw={600}>{question?.question || 'Question not found'}</Text>
-                        <Paper p="sm" bg="blue.0" style={{ border: '1px solid var(--mantine-color-blue-2)' }}>
+                        <Paper
+                          p="sm"
+                          style={{
+                            backgroundColor:
+                              colorScheme === 'dark'
+                                ? theme.colors.dark[5]
+                                : theme.colors.blue[0],
+                            border:
+                              colorScheme === 'dark'
+                                ? `1px solid ${theme.colors.dark[4]}`
+                                : `1px solid ${theme.colors.blue[2]}`,
+                          }}
+                        >
                           <Text fw={500}>{formatAnswer(response.answer)}</Text>
                         </Paper>
                       </Stack>

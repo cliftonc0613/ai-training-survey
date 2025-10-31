@@ -1,6 +1,6 @@
 'use client';
 
-import { Paper, Title } from '@mantine/core';
+import { Paper, Title, useMantineTheme, useMantineColorScheme } from '@mantine/core';
 import {
   LineChart,
   Line,
@@ -21,6 +21,9 @@ interface AnalyticsChartProps {
 }
 
 export default function AnalyticsChart({ data, title }: AnalyticsChartProps) {
+  const theme = useMantineTheme();
+  const { colorScheme } = useMantineColorScheme();
+
   // Format date for display
   const formattedData = data.map((item) => ({
     date: new Date(item.date).toLocaleDateString('en-US', {
@@ -37,34 +40,53 @@ export default function AnalyticsChart({ data, title }: AnalyticsChartProps) {
       </Title>
       {formattedData.length === 0 ? (
         <div style={{ height: 400, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <p style={{ color: '#868e96', fontSize: '14px' }}>No response data available yet</p>
+          <p
+            style={{
+              color: colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[6],
+              fontSize: '14px',
+            }}
+          >
+            No response data available yet
+          </p>
         </div>
       ) : (
         <ResponsiveContainer width="100%" height={400}>
           <LineChart data={formattedData}>
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke={colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[3]}
+            />
             <XAxis
               dataKey="date"
               style={{ fontSize: '12px' }}
+              stroke={colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[6]}
             />
             <YAxis
               style={{ fontSize: '12px' }}
               allowDecimals={false}
+              stroke={colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[6]}
             />
             <Tooltip
               contentStyle={{
-                backgroundColor: '#fff',
-                border: '1px solid #e9ecef',
+                backgroundColor: colorScheme === 'dark' ? theme.colors.dark[6] : '#fff',
+                border:
+                  colorScheme === 'dark'
+                    ? `1px solid ${theme.colors.dark[4]}`
+                    : '1px solid #e9ecef',
                 borderRadius: '8px',
+                color: colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
               }}
             />
             <Legend />
             <Line
               type="monotone"
               dataKey="responses"
-              stroke="#339af0"
+              stroke={colorScheme === 'dark' ? theme.colors.blue[5] : theme.colors.blue[6]}
               strokeWidth={2}
-              dot={{ fill: '#339af0', r: 4 }}
+              dot={{
+                fill: colorScheme === 'dark' ? theme.colors.blue[5] : theme.colors.blue[6],
+                r: 4,
+              }}
               activeDot={{ r: 6 }}
               name="Survey Responses"
             />
